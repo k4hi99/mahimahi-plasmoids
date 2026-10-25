@@ -1,0 +1,230 @@
+{
+	"name": "Markdown pour Débutants",
+	"description": "Guide complet pour écrire en Markdown - de zéro à héros !",
+	"author": "centurix (Cheaty pour Cinnamon), adapté par MahiMahi99",
+	"version": "1.0",
+	"sections": {
+		"01/ C'est quoi Markdown ?": {
+			"a. Introduction": {
+				"description": "Markdown est un langage de balisage léger pour formater du texte. Très utilisé sur GitHub, Reddit, Discord, et plein d'autres plateformes !",
+				"code": "# Avec Markdown, tu écris comme ça :\n**Texte en gras** et *texte en italique*\n\n# Et ça devient joli automatiquement !\n# Plus besoin de boutons compliqués 😊"
+			},
+			"b. Pourquoi utiliser Markdown ?": {
+				"description": "Simple à apprendre, rapide à écrire, compatible partout",
+				"code": "✅ Super facile à apprendre (5 minutes !)\n✅ Fonctionne sur GitHub, Discord, Reddit...\n✅ Pas besoin de souris, juste du clavier\n✅ Le texte reste lisible même sans rendu\n✅ Parfait pour la documentation\n✅ Portable entre tous les outils"
+			},
+			"c. Où l'utiliser ?": {
+				"description": "Tous les endroits où Markdown est supporté",
+				"code": "🐙 GitHub (README, issues, pull requests)\n💬 Discord (messages formatés)\n📱 Reddit (posts et commentaires)\n📝 Notion, Obsidian, Typora\n📚 Documentation technique\n✉️ Emails (certains clients)\n📖 Blogs et wikis\n💻 IDE comme VS Code"
+			}
+		},
+		"02/ Formatage de Texte de Base": {
+			"a. Gras et Italique": {
+				"description": "Les bases pour mettre en forme ton texte",
+				"code": "# Gras (2 façons)\n**Texte en gras**\n__Aussi en gras__\n\n# Italique (2 façons)\n*Texte en italique*\n_Aussi en italique_\n\n# Gras ET italique\n***Texte en gras et italique***\n___Aussi gras et italique___\n**_Ou comme ça_**"
+			},
+			"b. Barré et Souligné": {
+				"description": "Autres styles de texte utiles",
+				"code": "# Texte barré\n~~Ce texte est barré~~\n\n# Code inline (très utile !)\nUtilise la fonction `console.log()` en JavaScript\nLe fichier `config.json` contient les paramètres\n\n# Échapper des caractères spéciaux\nPour écrire \\*sans italique\\* ou \\# sans titre\nUtilise un backslash (\\) devant le caractère"
+			},
+			"c. Styles Combinés": {
+				"description": "Mélanger plusieurs styles ensemble",
+				"code": "# Exemples de combinaisons\n**Important :** *Ce point est crucial*\n\nLe code `git commit` est **super important** !\n\n~~Ancienne méthode~~ → **Nouvelle méthode recommandée**\n\n*Note :* Utilise `npm install` pour installer les dépendances"
+			}
+		},
+		"03/ Titres et Hiérarchie": {
+			"a. Les 6 Niveaux de Titres": {
+				"description": "Structurer ton contenu avec des titres",
+				"code": "# Titre 1 (le plus gros)\n## Titre 2\n### Titre 3\n#### Titre 4\n##### Titre 5\n###### Titre 6 (le plus petit)\n\n# Astuce : laisse un espace après le #\n# ✅ Bon\n#❌ Pas bon (pas d'espace)"
+			},
+			"b. Titres Alternatifs": {
+				"description": "Autre façon d'écrire les titres (niveaux 1 et 2 seulement)",
+				"code": "Titre Principal\n===============\n\nSous-titre\n----------\n\n# C'est équivalent à :\n# Titre Principal\n## Sous-titre"
+			},
+			"c. Structure de Document": {
+				"description": "Exemple de bonne hiérarchie pour un document",
+				"code": "# Mon Projet Génial\n\n## Installation\n\n### Prérequis\n### Étapes d'installation\n\n## Utilisation\n\n### Configuration de base\n### Fonctionnalités avancées\n\n#### Option A\n#### Option B\n\n## FAQ\n\n### Comment faire X ?\n### Que faire si Y ?"
+			}
+		},
+		"04/ Listes": {
+			"a. Listes à Puces": {
+				"description": "Créer des listes non ordonnées",
+				"code": "# Avec des tirets (-)\n- Premier élément\n- Deuxième élément\n- Troisième élément\n\n# Avec des étoiles (*)\n* Premier élément\n* Deuxième élément\n* Troisième élément\n\n# Avec des plus (+)\n+ Premier élément\n+ Deuxième élément\n+ Troisième élément"
+			},
+			"b. Listes Numérotées": {
+				"description": "Créer des listes ordonnées (la numérotation est automatique !)",
+				"code": "# La numérotation se fait automatiquement\n1. Premier élément\n2. Deuxième élément\n3. Troisième élément\n\n# Même si tu écris n'importe quoi !\n1. Premier élément\n1. Deuxième élément (sera affiché \"2.\")\n1. Troisième élément (sera affiché \"3.\")\n\n# Tu peux même commencer par un autre nombre\n5. Premier élément (affiché \"5.\")\n1. Deuxième élément (affiché \"6.\")\n1. Troisième élément (affiché \"7.\")"
+			},
+			"c. Listes Imbriquées": {
+				"description": "Créer des sous-listes (attention à l'indentation !)",
+				"code": "# Listes imbriquées (2 espaces d'indentation)\n1. Fruits\n  - Pommes\n  - Bananes\n  - Oranges\n2. Légumes\n  - Carottes\n  - Brocolis\n  - Épinards\n    - Épinards frais\n    - Épinards surgelés\n\n# Avec des listes numérotées\n1. Étape principale\n  1. Sous-étape A\n  2. Sous-étape B\n2. Autre étape principale\n  1. Sous-étape C"
+			},
+			"d. Listes de Tâches": {
+				"description": "Créer des todo lists avec des cases à cocher",
+				"code": "# Listes de tâches (checkboxes)\n- [ ] Tâche non terminée\n- [x] Tâche terminée\n- [ ] Autre tâche à faire\n- [x] Tâche finie\n\n# Exemple pratique\n## Ma Todo List\n- [x] Apprendre Markdown\n- [ ] Créer un README pour mon projet\n- [ ] Documenter mon code\n- [x] Boire un café ☕\n- [ ] Conquérir le monde\n\n# Note : l'espace dans [ ] est important !"
+			}
+		},
+		"05/ Liens": {
+			"a. Liens Simples": {
+				"description": "Créer des liens vers des sites web",
+				"code": "# Syntaxe de base\n[Texte du lien](https://example.com)\n\n# Exemples concrets\n[Google](https://google.com)\n[Mon profil GitHub](https://github.com/monusername)\n[Documentation officielle](https://docs.example.com)\n\n# Avec un titre au survol\n[GitHub](https://github.com \"Plateforme de développement\")\n\n# URL nue (se transforme automatiquement)\nhttps://github.com\nemail@example.com"
+			},
+			"b. Liens de Référence": {
+				"description": "Réutiliser des liens pour éviter la répétition",
+				"code": "# Définir les références en bas du document\n[GitHub][1] est génial pour le code.\nTu peux aussi utiliser [Stack Overflow][2] pour les questions.\nRetourne sur [GitHub][1] quand tu veux !\n\n# Références (généralement en bas du fichier)\n[1]: https://github.com \"Plateforme Git\"\n[2]: https://stackoverflow.com \"Questions/Réponses\"\n\n# Ou avec des noms plus clairs\nVisite [mon site][mon-site] et [mon blog][blog] !\n\n[mon-site]: https://monsite.com\n[blog]: https://monblog.com"
+			},
+			"c. Liens Internes": {
+				"description": "Naviguer dans le même document",
+				"code": "# Liens vers des sections (ancres)\n[Aller à la section Installation](#installation)\n[Voir les FAQ](#faq)\n[Retour au début](#top)\n\n# Les ancres se créent automatiquement à partir des titres\n# \"## Mon Super Titre\" devient \"#mon-super-titre\"\n\n# Exemple de structure\n## Table des matières\n1. [Installation](#installation)\n2. [Configuration](#configuration)\n3. [Utilisation](#utilisation)\n\n## Installation\n...\n\n## Configuration\n...\n\n# Liens vers des fichiers du projet\n[Voir le code source](./src/main.js)\n[Consulter la licence](LICENSE.md)\n[Images](./assets/screenshot.png)"
+			}
+		},
+		"06/ Images": {
+			"a. Images de Base": {
+				"description": "Insérer des images (très similaire aux liens !)",
+				"code": "# Syntaxe de base (comme un lien avec ! devant)\n![Texte alternatif](chemin/vers/image.jpg)\n\n# Exemples\n![Logo de mon projet](./logo.png)\n![Screenshot](https://i.imgur.com/example.jpg)\n![Diagramme](./docs/architecture.svg)\n\n# Avec titre au survol\n![Mon chat](./chat.jpg \"Voici Félix, mon chat adoré\")\n\n# Le texte alternatif est important pour l'accessibilité !\n![Graphique montrant une augmentation de 25% des ventes](./graph.png)"
+			},
+			"b. Images avec Liens": {
+				"description": "Rendre une image cliquable",
+				"code": "# Image cliquable (image dans un lien)\n[![Logo GitHub](./github-logo.png)](https://github.com)\n\n# Décomposé :\n# [![Logo GitHub](./github-logo.png)]  ← l'image\n# (https://github.com)                ← le lien\n\n# Exemples pratiques\n[![Build Status](https://travis-ci.org/user/repo.svg)](https://travis-ci.org/user/repo)\n[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)\n\n# Badges (super populaires sur GitHub !)\n[![npm version](https://badge.fury.io/js/package.svg)](https://npmjs.com/package)"
+			},
+			"c. Images avec Référence": {
+				"description": "Utiliser des références pour les images aussi",
+				"code": "# Images avec références\n![Logo de mon projet][logo]\n![Screenshot principal][screenshot]\n\n# Définitions des références\n[logo]: ./assets/logo.png \"Logo officiel\"\n[screenshot]: ./docs/screenshot.png \"Interface principale\"\n\n# Super pratique quand tu utilises la même image plusieurs fois\nRegarde le ![logo][logo] en haut de page.\nN'oublie pas de télécharger le ![logo][logo] pour ton projet !"
+			}
+		},
+		"07/ Code": {
+			"a. Code Inline": {
+				"description": "Mettre du code dans une phrase",
+				"code": "# Code inline avec des backticks\nUtilise la commande `git status` pour voir l'état.\nLa fonction `console.log()` affiche du texte.\nLe fichier `package.json` contient la config.\n\n# Pratique pour :\n- Noms de variables : `maVariable`\n- Commandes : `npm install`\n- Noms de fichiers : `index.html`\n- Touches du clavier : `Ctrl+C`\n- Valeurs : la variable vaut `true`"
+			},
+			"b. Blocs de Code": {
+				"description": "Afficher plusieurs lignes de code",
+				"code": "# Bloc de code simple (3 backticks)\n```\nfunction hello() {\n  console.log(\"Hello World!\");\n}\n```\n\n# Avec indentation (4 espaces)\n    function hello() {\n      console.log(\"Hello World!\");\n    }\n\n# Le triple backtick est plus populaire et flexible"
+			},
+			"c. Code avec Coloration Syntaxique": {
+				"description": "Spécifier le langage pour avoir de la couleur !",
+				"code": "# JavaScript\n```javascript\nconst message = \"Hello World!\";\nconsole.log(message);\n```\n\n# Python\n```python\ndef hello():\n    print(\"Hello World!\")\n```\n\n# HTML\n```html\n<div class=\"container\">\n  <h1>Hello World!</h1>\n</div>\n```\n\n# CSS\n```css\n.container {\n  background-color: #f0f0f0;\n  padding: 20px;\n}\n```\n\n# Shell/Terminal\n```bash\nnpm install\ngit commit -m \"Initial commit\"\n```\n\n# JSON\n```json\n{\n  \"name\": \"mon-projet\",\n  \"version\": \"1.0.0\"\n}\n```"
+			},
+			"d. Conseils pour le Code": {
+				"description": "Bonnes pratiques pour présenter du code",
+				"code": "# Toujours spécifier le langage quand c'est possible\n✅ ```javascript\n❌ ```\n\n# Ajouter des commentaires explicatifs\n```javascript\n// Fonction pour calculer l'âge\nfunction calculerAge(dateNaissance) {\n  const aujourd = new Date();\n  return aujourd.getFullYear() - dateNaissance.getFullYear();\n}\n```\n\n# Séparer le code long en sections\n## Installation\n```bash\nnpm install\n```\n\n## Configuration\n```javascript\nconst config = { ... };\n```\n\n## Utilisation\n```javascript\napp.use(config);\n```"
+			}
+		},
+		"08/ Citations et Séparateurs": {
+			"a. Citations (Blockquotes)": {
+				"description": "Mettre en évidence des citations ou des notes importantes",
+				"code": "# Citation simple\n> Ceci est une citation.\n> Elle peut faire plusieurs lignes.\n\n# Citation imbriquée\n> Première citation\n> > Citation dans la citation\n> > (comme une réponse)\n> Retour à la première citation\n\n# Citation avec formatage\n> **Important :** Cette information est cruciale !\n> \n> Utilise `git commit` pour sauvegarder tes changements.\n\n# Utilisation pratique\n> ⚠️ **Attention :** Cette commande va supprimer tous les fichiers !\n> \n> ✅ **Conseil :** Fais toujours un backup avant."
+			},
+			"b. Lignes de Séparation": {
+				"description": "Diviser ton contenu en sections",
+				"code": "# Trois façons de faire une ligne horizontale\n\n---\n\n***\n\n___\n\n# Elles donnent toutes le même résultat !\n# Utilise celle que tu préfères\n\n# Exemple d'utilisation\n## Section 1\nContenu de la première section...\n\n---\n\n## Section 2\nContenu de la deuxième section...\n\n---\n\n## Conclusion\nRésumé final..."
+			}
+		},
+		"09/ Tableaux": {
+			"a. Tableau Simple": {
+				"description": "Créer des tableaux basiques (attention à l'alignement !)",
+				"code": "# Syntaxe de base\n| Nom     | Âge | Ville  |\n|---------|-----|--------|\n| Alice   | 25  | Paris  |\n| Bob     | 30  | Lyon   |\n| Charlie | 35  | Nantes |\n\n# Les espaces ne sont pas obligatoires, mais c'est plus lisible\n|Nom|Âge|Ville|\n|---|---|---|\n|Alice|25|Paris|\n|Bob|30|Lyon|\n\n# Le résultat est le même !"
+			},
+			"b. Alignement des Colonnes": {
+				"description": "Contrôler l'alignement du texte dans les colonnes",
+				"code": "# Alignement avec les deux-points (:)\n| Gauche    | Centré   | Droite   |\n|:----------|:--------:|---------:|\n| Texte     | Texte    | Texte    |\n| Aligné    | Aligné   | Aligné   |\n| à gauche  | au centre| à droite |\n\n# Explication des alignements :\n# |:--------- = aligné à gauche\n# |:--------: = centré\n# |---------: = aligné à droite\n# |--------- = par défaut (gauche)"
+			},
+			"c. Tableaux avec Formatage": {
+				"description": "Utiliser du formatage dans les cellules",
+				"code": "| Nom        | Status      | Notes                    |\n|------------|:-----------:|-------------------------|\n| **Alice**  | ✅ Actif    | `admin` level           |\n| *Bob*      | ❌ Inactif  | En congé                |\n| ~~Charlie~~| ⏳ En cours | [Profil](./bob.md)      |\n\n# Tu peux utiliser :\n# - **Gras** et *italique*\n# - `Code inline`\n# - [Liens](url)\n# - ✅❌⏳ Emojis\n# - ~~Barré~~\n\n# Tableau de commandes Git\n| Commande            | Description           | Exemple                |\n|--------------------:|:----------------------|------------------------|\n| `git add`          | Ajoute des fichiers   | `git add .`            |\n| `git commit`       | Crée un commit        | `git commit -m \"fix\"`  |\n| `git push`         | Envoie sur le serveur | `git push origin main` |"
+			}
+		},
+		"10/ Emojis et Caractères Spéciaux": {
+			"a. Emojis": {
+				"description": "Ajouter des emojis pour rendre ton markdown plus sympa !",
+				"code": "# Emojis directs (copie-colle)\n✅ Tâche terminée\n❌ Erreur\n⚠️ Attention\n💡 Astuce\n🚀 Nouveau\n🔧 Maintenance\n📚 Documentation\n🐛 Bug\n\n# Codes d'emojis (GitHub, Discord...)\n:white_check_mark: Tâche terminée\n:x: Erreur\n:warning: Attention\n:bulb: Astuce\n:rocket: Nouveau\n:wrench: Maintenance\n:books: Documentation\n:bug: Bug\n\n# Les deux méthodes donnent le même résultat sur GitHub !"
+			},
+			"b. Emojis Pratiques pour Documentation": {
+				"description": "Collection d'emojis utiles pour tes projets",
+				"code": "# Status et états\n✅ :white_check_mark: Fait/Bon\n❌ :x: Erreur/Mauvais\n⚠️ :warning: Attention\n🔄 :arrows_counterclockwise: En cours\n⏳ :hourglass_flowing_sand: En attente\n🔍 :mag: À vérifier\n\n# Types de contenu\n📚 :books: Documentation\n🚀 :rocket: Nouvelle fonctionnalité\n🐛 :bug: Bug\n🔧 :wrench: Maintenance\n💡 :bulb: Astuce/Idée\n🎯 :dart: Objectif\n📝 :memo: Note\n🔗 :link: Lien\n\n# Niveaux d'importance\n🔥 :fire: Très important\n⭐ :star: Important\n💭 :thought_balloon: Optionnel"
+			},
+			"c. Caractères Spéciaux Utiles": {
+				"description": "Autres caractères sympas à utiliser",
+				"code": "# Flèches\n→ Flèche droite\n← Flèche gauche\n↑ Flèche haut\n↓ Flèche bas\n↩️ Retour\n\n# Symboles\n© Copyright\n® Marque déposée\n™ Trademark\n§ Paragraphe\n† Note de bas de page\n\n# Math et technique\n± Plus ou moins\n× Multiplication\n÷ Division\n≈ Approximativement\n≠ Différent de\n≤ Inférieur ou égal\n≥ Supérieur ou égal\n\n# Devises\n$ Dollar\n€ Euro\n£ Livre\n¥ Yen\n\n# Pour les copier : sélectionne et Ctrl+C !"
+			}
+		},
+		"11/ README et Documentation": {
+			"a. Structure d'un README": {
+				"description": "Template pour créer un super README de projet",
+				"code": "# Mon Projet Génial\n\n> Description courte et accrocheuse du projet\n\n[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#)\n[![License](https://img.shields.io/badge/license-MIT-blue)](#)\n\n## 🚀 À propos\n\nExplication plus détaillée de ce que fait ton projet.\n\n## ✨ Fonctionnalités\n\n- [x] Fonctionnalité 1\n- [x] Fonctionnalité 2\n- [ ] Fonctionnalité à venir\n\n## 📦 Installation\n\n```bash\ngit clone https://github.com/user/repo.git\ncd repo\nnpm install\n```\n\n## 🛠️ Utilisation\n\n```javascript\nconst app = require('./app');\napp.start();\n```\n\n## 📸 Screenshots\n\n![Screenshot](./docs/screenshot.png)\n\n## 🤝 Contribuer\n\nLes contributions sont les bienvenues !\n\n## 📄 Licence\n\nMIT © [Ton Nom](https://github.com/tonusername)"
+			},
+			"b. Badges Populaires": {
+				"description": "Badges sympas pour ton README (ils rendent professionnel !)",
+				"code": "# Badges de base (remplace USER/REPO par tes infos)\n![GitHub stars](https://img.shields.io/github/stars/USER/REPO?style=social)\n![GitHub forks](https://img.shields.io/github/forks/USER/REPO?style=social)\n![GitHub issues](https://img.shields.io/github/issues/USER/REPO)\n![GitHub license](https://img.shields.io/github/license/USER/REPO)\n\n# Badges de build\n![Build Status](https://travis-ci.org/USER/REPO.svg?branch=main)\n![Tests](https://github.com/USER/REPO/workflows/Tests/badge.svg)\n\n# Badges de version\n![npm version](https://badge.fury.io/js/PACKAGE.svg)\n![Python version](https://img.shields.io/badge/python-3.8+-blue.svg)\n\n# Badges personnalisés\n![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red)\n![Powered by Coffee](https://img.shields.io/badge/Powered%20by-☕-brown)\n\n# Site pour créer des badges : https://shields.io/"
+			},
+			"c. Sections Utiles": {
+				"description": "Idées de sections pour une doc complète",
+				"code": "# Sections classiques d'un bon README :\n\n## 🎯 Prérequis\n- Node.js 14+\n- Git\n- Un cerveau (optionnel 😄)\n\n## ⚡ Démarrage rapide\n```bash\nnpm start\n```\n\n## 📖 Documentation complète\n[Voir la doc](./docs/README.md)\n\n## 🧪 Tests\n```bash\nnpm test\n```\n\n## 🚀 Déploiement\nÉtapes pour mettre en production...\n\n## 📋 Changelog\nVoir [CHANGELOG.md](CHANGELOG.md)\n\n## ❓ FAQ\n**Q: Comment faire X ?**\nR: Tu fais Y...\n\n## 🛡️ Sécurité\nPour reporter une vulnérabilité...\n\n## 👥 Auteurs\n- **Ton Nom** - *Créateur* - [GitHub](https://github.com/toi)\n\n## 🙏 Remerciements\n- Personne qui t'a aidé\n- Projet qui t'a inspiré"
+			}
+		},
+		"12/ Trucs et Astuces": {
+			"a. Échapper des Caractères": {
+				"description": "Comment afficher les caractères spéciaux Markdown littéralement",
+				"code": "# Utilise un backslash (\\) pour échapper\n\\*Ce texte ne sera pas en italique\\*\n\\# Ce ne sera pas un titre\n\\[Ce ne sera pas un lien\\]\n\n# Caractères à échapper si besoin :\n\\ backslash\n` backtick\n* astérisque\n_ underscore\n{} accolades\n[] crochets\n() parenthèses\n# dièse\n+ plus\n- tiret\n. point\n! exclamation\n\n# Dans un bloc de code, pas besoin d'échapper :\n```\n* Ce texte restera tel quel\n# Même ça\n[Et ça aussi](pas un lien)\n```"
+			},
+			"b. Sauts de Ligne": {
+				"description": "Gérer les espaces et sauts de ligne",
+				"code": "# Saut de ligne simple\nPremière ligne\nDeuxième ligne  ← 2 espaces en fin de ligne\nTroisième ligne\n\n# Ou avec une ligne vide :\nPremière ligne\n\nDeuxième ligne (avec espace)\n\n# Pour forcer un saut (HTML)\nPremière ligne<br>\nDeuxième ligne immédiatement en dessous\n\n# Attention : une seule fin de ligne = pas de saut !\nCette ligne\net celle-ci seront collées ensemble.\n\nMais pas celle-ci car il y a une ligne vide."
+			},
+			"c. Organisation et Lisibilité": {
+				"description": "Conseils pour un Markdown propre et lisible",
+				"code": "# ✅ Bonnes pratiques\n\n## Laisse des espaces\n# ✅ Bon\n## Mon Titre\n\n# ❌ Pas bon\n##Mon Titre\n\n## Structure claire\n# Utilise une hiérarchie logique :\n# H1 pour le titre principal\n## H2 pour les sections\n### H3 pour les sous-sections\n\n## Listes cohérentes\n# Utilise toujours le même caractère\n- Premier\n- Deuxième\n- Troisième\n\n# Pas un mélange de -, *, +\n\n## Liens lisibles\n# ✅ Bon\n[Documentation officielle](https://example.com)\n\n# ❌ Moins bon\n[https://example.com](https://example.com)\n\n## Indentation\n# 2 espaces pour les listes imbriquées\n- Niveau 1\n  - Niveau 2\n    - Niveau 3"
+			},
+			"d. Outils et Éditeurs": {
+				"description": "Outils pour mieux écrire en Markdown",
+				"code": "# 📝 Éditeurs spécialisés\n- **Typora** : WYSIWYG (What You See Is What You Get)\n- **Mark Text** : Éditeur en temps réel\n- **Obsidian** : Pour notes et wiki personnel\n- **Notion** : Tout-en-un avec Markdown\n\n# 💻 Extensions VS Code\n- **Markdown All in One** : Raccourcis et prévisualisation\n- **Markdown Preview Enhanced** : Préview avancée\n- **markdownlint** : Vérificateur de syntaxe\n\n# 🌐 Prévisualisation en ligne\n- **Dillinger** : Éditeur Markdown en ligne\n- **StackEdit** : Synchronisation avec Google Drive\n- **GitHub** : Préview automatique des fichiers .md\n\n# ⌨️ Raccourcis utiles\n**VS Code :**\n- `Ctrl + Shift + V` : Prévisualisation\n- `Ctrl + K V` : Préview côte à côte\n- `Ctrl + B` : Gras (sélectionne le texte d'abord)\n- `Ctrl + I` : Italique"
+			}
+		},
+		"13/ Markdown Avancé": {
+			"a. HTML dans Markdown": {
+				"description": "Tu peux mélanger du HTML quand Markdown ne suffit pas !",
+				"code": "# HTML basique autorisé\n<div align=\"center\">\n  <h1>Titre centré</h1>\n  <img src=\"logo.png\" width=\"200\">\n</div>\n\n# Styles inline\n<span style=\"color: red;\">Texte rouge</span>\n<span style=\"background-color: yellow;\">Texte surligné</span>\n\n# Détails dépliables (super utile !)\n<details>\n<summary>Cliquez pour déplier</summary>\n\nContenu caché ici !\n\n- Liste\n- Dans le\n- Détail\n\n```javascript\nconsole.log(\"Code aussi !\");\n```\n\n</details>\n\n# Centrer des éléments\n<div align=\"center\">\n\n![Logo](./logo.png)\n\n**Texte centré**\n\n</div>"
+			},
+			"b. Variables et Références": {
+				"description": "Réutiliser des éléments avec des références",
+				"code": "# Définir des variables en haut du fichier\n[logo]: ./assets/logo.png \"Logo de mon projet\"\n[site]: https://monsite.com\n[email]: mailto:contact@monsite.com\n[license]: ./LICENSE \"Licence MIT\"\n\n# Ensuite les utiliser partout\nBienvenue sur ![mon projet][logo] !\n\nVisite [notre site][site] ou contact nous : [email][email]\n\nCe projet est sous [licence MIT][license].\n\n# Variables pour du texte aussi\n[version]: v1.2.3\n[author]: Mon Nom\n\nVersion actuelle : [version]\nAuteur : [author]\n\n# Super pratique pour :\n- URLs longues utilisées plusieurs fois\n- Informations qui changent souvent\n- Garder le texte principal propre"
+			},
+			"c. Footnotes (Notes de bas de page)": {
+				"description": "Ajouter des références et notes explicatives",
+				"code": "# Notes de bas de page\nCeci est un texte avec une note[^1].\n\nVoici une autre phrase avec une note plus longue[^note-longue].\n\nEt une troisième avec référence[^2].\n\n# Définitions des notes (généralement en bas)\n[^1]: Ceci est une note simple.\n\n[^note-longue]: Ceci est une note plus longue.\n    Elle peut faire plusieurs lignes.\n    \n    Et même contenir des paragraphes !\n\n[^2]: Tu peux utiliser des numéros ou des noms.\n\n# Utilisation pratique\nLe Markdown a été créé par John Gruber[^gruber] en 2004.\n\nGitHub utilise GitHub Flavored Markdown[^gfm].\n\n[^gruber]: [John Gruber - Daring Fireball](https://daringfireball.net/)\n[^gfm]: [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)"
+			},
+			"d. Diagrammes (GitHub, GitLab)": {
+				"description": "Créer des diagrammes avec du code (support limité)",
+				"code": "# Diagrammes Mermaid (GitHub supporte !)\n```mermaid\ngraph TD;\n    A-->B;\n    A-->C;\n    B-->D;\n    C-->D;\n```\n\n# Diagramme de flux\n```mermaid\nflowchart LR\n    A[Début] --> B{Décision}\n    B -->|Oui| C[Action 1]\n    B -->|Non| D[Action 2]\n    C --> E[Fin]\n    D --> E\n```\n\n# Diagramme de séquence\n```mermaid\nsequenceDiagram\n    participant A as Alice\n    participant B as Bob\n    A->>B: Salut Bob !\n    B->>A: Salut Alice !\n```\n\n# Gantt (planning)\n```mermaid\ngantt\n    title Planning du projet\n    dateFormat  YYYY-MM-DD\n    section Phase 1\n    Conception      :done, des1, 2023-01-01,2023-01-06\n    Développement   :active, dev1, 2023-01-07, 3d\n```\n\n# Note : Mermaid ne fonctionne que sur certaines plateformes\n# (GitHub, GitLab, certains éditeurs)"
+			}
+		},
+		"14/ Plateformes Spécifiques": {
+			"a. GitHub Flavored Markdown": {
+				"description": "Fonctionnalités spéciales de GitHub",
+				"code": "# ✅ Spécialités GitHub\n\n## Mentions et références\n@username mention un utilisateur\n#123 référence une issue/PR\nuser/repo#123 référence dans un autre repo\nSHA: a5c3785ed8d6a35868bc169f07e40e889087fd2e\n\n## Listes de tâches avancées\n- [x] Tâche terminée\n- [ ] Tâche en cours\n- [ ] @username à assigner\n- [ ] #123 référence à une issue\n\n## Émojis avec codes\n:+1: :tada: :rocket: :bug: :sparkles:\n\n## Diff dans les blocs de code\n```diff\n- ligne supprimée\n+ ligne ajoutée\n  ligne inchangée\n```\n\n## Tableaux avec alignement\n| Left | Center | Right |\n|:-----|:------:|------:|\n| L    |   C    |     R |\n\n## Échapper les notifications\nUtilise `@<!-- -->username` pour éviter de notifier"
+			},
+			"b. Discord Markdown": {
+				"description": "Markdown dans Discord (plus limité)",
+				"code": "# ✅ Supporté dans Discord\n**Gras**\n*Italique*\n~~Barré~~\n__Souligné__\n`Code inline`\n\n# Blocs de code avec coloration\n```javascript\nconsole.log(\"Hello Discord!\");\n```\n\n# Citations\n> Citation simple\n>>> Citation multi-lignes\n>>> qui continue ici\n\n# ❌ PAS supporté dans Discord\n- # Titres\n- [Liens](url)\n- ![Images](url)\n- - Listes\n- | Tableaux |\n- HTML\n\n# Trucs Discord spéciaux\n||Texte caché|| (spoiler)\n<@123456789> mention utilisateur\n<#123456789> mention canal\n<:emoji:123456789> émoji personnalisé"
+			},
+			"c. Reddit Markdown": {
+				"description": "Particularités du Markdown Reddit",
+				"code": "# ✅ Supporté sur Reddit\n**Gras** et *italique*\n~~Barré~~\n`Code inline`\n[Liens](https://example.com)\n\n# Listes\n* Item 1\n* Item 2\n\n# Citations\n> Citation Reddit\n\n# Code\n    Code avec 4 espaces d'indentation\n\n# ❌ Limité sur Reddit\n- Pas d'images intégrées\n- Pas de tableaux\n- Pas de HTML\n- # Titres pas toujours supportés\n\n# Spécialités Reddit\n/u/username mention utilisateur\n/r/subreddit mention subreddit\n^superscript texte en exposant\n\n# Formatage avancé avec RES (Reddit Enhancement Suite)\n[text](#spoiler) texte caché\n\n# Multi-niveaux de citations\n> Niveau 1\n>> Niveau 2\n>>> Niveau 3"
+			}
+		},
+		"15/ Checklist Complète": {
+			"a. Pour un README Parfait": {
+				"description": "Checklist pour créer un README de qualité pro",
+				"code": "# 📋 Checklist README\n\n## Structure de base\n- [ ] Titre du projet (# H1)\n- [ ] Description courte et claire\n- [ ] Badges de statut (build, license, etc.)\n- [ ] Table des matières (si long)\n- [ ] Section \"À propos\" détaillée\n\n## Installation et utilisation\n- [ ] Prérequis clairement listés\n- [ ] Instructions d'installation pas à pas\n- [ ] Exemple d'utilisation simple\n- [ ] Code d'exemple qui fonctionne\n- [ ] Capture d'écran ou demo\n\n## Documentation\n- [ ] API documentée (si applicable)\n- [ ] Configuration expliquée\n- [ ] Exemples avancés\n- [ ] FAQ pour questions communes\n- [ ] Lien vers doc complète\n\n## Contribution et legal\n- [ ] Guide de contribution\n- [ ] Licence clairement indiquée\n- [ ] Code de conduite (si public)\n- [ ] Contact/support\n- [ ] Remerciements\n\n## Finitions\n- [ ] Orthographe vérifiée\n- [ ] Liens testés\n- [ ] Screenshots à jour\n- [ ] Version synchronisée"
+			},
+			"b. Erreurs Communes à Éviter": {
+				"description": "Pièges classiques du débutant en Markdown",
+				"code": "# ❌ Erreurs fréquentes\n\n## Espaces oubliés\n# ❌ Mauvais\n#Titre sans espace\n-Liste sans espace\n\n# ✅ Correct\n# Titre avec espace\n- Liste avec espace\n\n## Sauts de ligne mal gérés\n# ❌ Mauvais (pas de saut)\nLigne 1\nLigne 2\n\n# ✅ Correct (2 espaces ou ligne vide)\nLigne 1  \nLigne 2\n\nOu:\n\nLigne 1\n\nLigne 2\n\n## Liens cassés\n# ❌ Mauvais\n[Lien](./fichier-qui-existe-pas.md)\n![Image](./image-inexistante.jpg)\n\n# ✅ Bon\n[Lien](./docs/guide.md)\n![Image](./assets/screenshot.png)\n\n## Tableaux mal formés\n# ❌ Mauvais\n|Nom|Age\n|Alice|25|\n\n# ✅ Bon\n| Nom   | Age |\n|-------|-----|\n| Alice | 25  |\n\n## Code sans langage\n# ❌ Moins bien\n```\nfunction hello() {}\n```\n\n# ✅ Mieux\n```javascript\nfunction hello() {}\n```"
+			},
+			"c. Ressources pour Aller Plus Loin": {
+				"description": "Liens et outils pour maîtriser Markdown",
+				"code": "# 📚 Pour approfondir\n\n## Spécifications officielles\n- [CommonMark](https://commonmark.org/) - Standard Markdown\n- [GitHub Flavored Markdown](https://github.github.com/gfm/)\n- [Markdown Guide](https://www.markdownguide.org/)\n\n## Outils d'aide\n- [Dillinger](https://dillinger.io/) - Éditeur en ligne\n- [Shields.io](https://shields.io/) - Générateur de badges\n- [Mermaid Live Editor](https://mermaid.live/) - Diagrammes\n- [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet)\n\n## Extensions intéressantes\n- **Markdown Extended** - Fonctionnalités supplémentaires\n- **Pandoc** - Conversion vers autres formats\n- **MDX** - Markdown + React/Vue\n- **R Markdown** - Markdown + R pour data science\n\n## Communautés\n- [r/Markdown](https://reddit.com/r/Markdown) - Reddit\n- Stack Overflow - Tag [markdown]\n- GitHub Discussions - Projets Markdown\n\n## Conseils finaux\n1. 🎯 **Pratique** : Crée ton premier README\n2. 🔍 **Inspire-toi** : Regarde les bons READMEs sur GitHub\n3. 📝 **Écris** : Utilise Markdown pour tes notes\n4. 🚀 **Partage** : Documente tes projets\n5. 💡 **Expérimente** : Teste les fonctionnalités avancées"
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+# Sauvegardes et métadonnées Dolphin
+*.bak
+.directory
+__pycache__/

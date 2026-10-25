@@ -1,0 +1,263 @@
+{
+	"name": "HTML5",
+	"description": "Langage de balisage pour créer des pages web modernes et sémantiques",
+	"author": "MahiMahi99",
+	"version": "5.0",
+	"sections": {
+		"01/ Structure de Base": {
+			"a. Document HTML5": {
+				"description": "Structure minimale d'un document HTML5",
+				"code": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre de la page</title>\n</head>\n<body>\n  <h1>Contenu principal</h1>\n  <p>Votre contenu ici...</p>\n</body>\n</html>"
+			},
+			"b. Déclaration DOCTYPE": {
+				"description": "Déclaration HTML5 simplifiée",
+				"code": "<!DOCTYPE html>"
+			},
+			"c. Balises Méta Essentielles": {
+				"description": "Métadonnées importantes pour le navigateur",
+				"code": "<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<meta name=\"description\" content=\"Description de la page\">\n<meta name=\"keywords\" content=\"mot-clé1, mot-clé2\">\n<meta name=\"author\" content=\"Nom de l'auteur\">"
+			},
+			"d. Liens CSS et JavaScript": {
+				"description": "Inclusion de ressources externes",
+				"code": "<!-- CSS -->\n<link rel=\"stylesheet\" href=\"styles.css\">\n<link rel=\"icon\" href=\"favicon.ico\" type=\"image/x-icon\">\n\n<!-- JavaScript -->\n<script src=\"script.js\"></script>\n<script src=\"script.js\" defer></script>\n<script src=\"script.js\" async></script>"
+			}
+		},
+		"02/ Éléments Sémantiques": {
+			"a. Structure de Page": {
+				"description": "Éléments pour structurer une page complète",
+				"code": "<header>\n  <h1>Titre du site</h1>\n  <nav>\n    <ul>\n      <li><a href=\"#\">Accueil</a></li>\n      <li><a href=\"#\">À propos</a></li>\n    </ul>\n  </nav>\n</header>\n\n<main>\n  <article>\n    <h2>Titre de l'article</h2>\n    <p>Contenu de l'article...</p>\n  </article>\n</main>\n\n<aside>\n  <h3>Sidebar</h3>\n  <p>Contenu latéral...</p>\n</aside>\n\n<footer>\n  <p>&copy; 2024 Mon Site</p>\n</footer>"
+			},
+			"b. Header": {
+				"description": "En-tête de page ou de section",
+				"code": "<header>\n  <h1>Titre principal</h1>\n  <nav>\n    <a href=\"#\">Accueil</a>\n    <a href=\"#\">Services</a>\n    <a href=\"#\">Contact</a>\n  </nav>\n</header>\n\n<!-- Header dans un article -->\n<article>\n  <header>\n    <h2>Titre de l'article</h2>\n    <p>Publié le 15 janvier 2024</p>\n  </header>\n  <p>Contenu de l'article...</p>\n</article>"
+			},
+			"c. Nav": {
+				"description": "Navigation principale ou secondaire",
+				"code": "<!-- Navigation principale -->\n<nav>\n  <ul>\n    <li><a href=\"index.html\">Accueil</a></li>\n    <li><a href=\"about.html\">À propos</a></li>\n    <li><a href=\"services.html\">Services</a></li>\n    <li><a href=\"contact.html\">Contact</a></li>\n  </ul>\n</nav>\n\n<!-- Navigation de page -->\n<nav aria-label=\"Navigation de page\">\n  <ol>\n    <li><a href=\"#intro\">Introduction</a></li>\n    <li><a href=\"#content\">Contenu</a></li>\n    <li><a href=\"#conclusion\">Conclusion</a></li>\n  </ol>\n</nav>"
+			},
+			"d. Main": {
+				"description": "Contenu principal de la page",
+				"code": "<main>\n  <h1>Contenu principal</h1>\n  <section>\n    <h2>Section importante</h2>\n    <p>Contenu de la section...</p>\n  </section>\n  <article>\n    <h2>Article</h2>\n    <p>Contenu de l'article...</p>\n  </article>\n</main>"
+			},
+			"e. Section": {
+				"description": "Section thématique de contenu",
+				"code": "<section>\n  <h2>Nos Services</h2>\n  <p>Description des services...</p>\n  <ul>\n    <li>Service 1</li>\n    <li>Service 2</li>\n    <li>Service 3</li>\n  </ul>\n</section>\n\n<section>\n  <h2>Témoignages</h2>\n  <blockquote>\n    <p>\"Excellent service !\"</p>\n    <cite>- Client satisfait</cite>\n  </blockquote>\n</section>"
+			},
+			"f. Article": {
+				"description": "Contenu autonome et réutilisable",
+				"code": "<article>\n  <header>\n    <h2>Titre de l'article</h2>\n    <p>Publié le <time datetime=\"2024-01-15\">15 janvier 2024</time></p>\n    <p>Par <address>Jean Dupont</address></p>\n  </header>\n  \n  <p>Contenu de l'article...</p>\n  \n  <footer>\n    <p>Tags: <a href=\"#\">#HTML5</a>, <a href=\"#\">#Web</a></p>\n  </footer>\n</article>"
+			},
+			"g. Aside": {
+				"description": "Contenu complémentaire ou sidebar",
+				"code": "<aside>\n  <h3>Articles connexes</h3>\n  <ul>\n    <li><a href=\"#\">Guide HTML pour débutants</a></li>\n    <li><a href=\"#\">CSS avancé</a></li>\n    <li><a href=\"#\">JavaScript moderne</a></li>\n  </ul>\n</aside>\n\n<!-- Aside dans un article -->\n<article>\n  <h2>Article principal</h2>\n  <p>Contenu principal...</p>\n  \n  <aside>\n    <h3>Note</h3>\n    <p>Information complémentaire sur ce sujet...</p>\n  </aside>\n</article>"
+			},
+			"h. Footer": {
+				"description": "Pied de page ou de section",
+				"code": "<footer>\n  <nav>\n    <a href=\"#\">Mentions légales</a>\n    <a href=\"#\">Politique de confidentialité</a>\n    <a href=\"#\">Contact</a>\n  </nav>\n  <p>&copy; 2024 Mon Site Web. Tous droits réservés.</p>\n  <address>\n    Contactez-nous : <a href=\"mailto:info@monsite.fr\">info@monsite.fr</a>\n  </address>\n</footer>"
+			}
+		},
+		"03/ Titres et Texte": {
+			"a. Hiérarchie des Titres": {
+				"description": "Structure hiérarchique des titres H1 à H6",
+				"code": "<h1>Titre principal (H1)</h1>\n<h2>Titre de section (H2)</h2>\n<h3>Sous-titre (H3)</h3>\n<h4>Titre de sous-section (H4)</h4>\n<h5>Titre de paragraphe (H5)</h5>\n<h6>Titre de détail (H6)</h6>\n\n<!-- Utilisation sémantique -->\n<article>\n  <h1>Guide HTML5</h1>\n  <section>\n    <h2>Introduction</h2>\n    <h3>Qu'est-ce qu'HTML5 ?</h3>\n    <h3>Pourquoi utiliser HTML5 ?</h3>\n  </section>\n</article>"
+			},
+			"b. Paragraphes et Texte": {
+				"description": "Éléments de texte et formatage",
+				"code": "<p>Ceci est un paragraphe normal.</p>\n\n<p>Texte avec <strong>importance forte</strong> et <em>emphase</em>.</p>\n\n<p>Texte avec <mark>surligné</mark> et <small>petit texte</small>.</p>\n\n<p>Formule chimique : H<sub>2</sub>O et équation : E=mc<sup>2</sup></p>\n\n<p><abbr title=\"HyperText Markup Language\">HTML</abbr> est un langage de balisage.</p>\n\n<p>Date : <time datetime=\"2024-01-15T10:00\">15 janvier 2024 à 10h</time></p>"
+			},
+			"c. Citations": {
+				"description": "Citations courtes et longues",
+				"code": "<!-- Citation courte -->\n<p>Comme le dit Einstein : <q>L'imagination est plus importante que la connaissance.</q></p>\n\n<!-- Citation longue -->\n<blockquote cite=\"https://source.com\">\n  <p>\"Le web est plus une création sociale que technique. \n  Je l'ai conçu pour qu'il ait un effet social — aider les gens à travailler ensemble — et non comme un jouet technique.\"</p>\n  <cite>— Tim Berners-Lee</cite>\n</blockquote>\n\n<!-- Citation avec référence -->\n<p>Selon <cite>Le Guide HTML5</cite>, les éléments sémantiques améliorent l'accessibilité.</p>"
+			},
+			"d. Code et Préformaté": {
+				"description": "Affichage de code et texte préformaté",
+				"code": "<!-- Code en ligne -->\n<p>Utilisez la balise <code>&lt;article&gt;</code> pour du contenu autonome.</p>\n\n<!-- Bloc de code -->\n<pre><code>function saluer(nom) {\n  console.log('Bonjour ' + nom + '!');\n}\n\nsaluer('Monde');</code></pre>\n\n<!-- Variables et clavier -->\n<p>La variable <var>x</var> représente la largeur.</p>\n<p>Appuyez sur <kbd>Ctrl</kbd> + <kbd>C</kbd> pour copier.</p>\n\n<!-- Sortie d'ordinateur -->\n<p>Résultat : <samp>Fichier sauvegardé avec succès</samp></p>"
+			}
+		},
+		"04/ Listes": {
+			"a. Liste Non Ordonnée": {
+				"description": "Liste à puces",
+				"code": "<ul>\n  <li>Premier élément</li>\n  <li>Deuxième élément</li>\n  <li>Troisième élément\n    <ul>\n      <li>Sous-élément 1</li>\n      <li>Sous-élément 2</li>\n    </ul>\n  </li>\n  <li>Quatrième élément</li>\n</ul>"
+			},
+			"b. Liste Ordonnée": {
+				"description": "Liste numérotée avec options",
+				"code": "<!-- Liste ordonnée basique -->\n<ol>\n  <li>Première étape</li>\n  <li>Deuxième étape</li>\n  <li>Troisième étape</li>\n</ol>\n\n<!-- Liste avec attributs -->\n<ol type=\"A\" start=\"3\">\n  <li>Point C</li>\n  <li>Point D</li>\n  <li>Point E</li>\n</ol>\n\n<!-- Liste renversée -->\n<ol reversed>\n  <li>Dernière étape</li>\n  <li>Avant-dernière étape</li>\n  <li>Première étape</li>\n</ol>"
+			},
+			"c. Liste de Définitions": {
+				"description": "Liste de termes et définitions",
+				"code": "<dl>\n  <dt>HTML</dt>\n  <dd>HyperText Markup Language - Langage de balisage pour créer des pages web</dd>\n  \n  <dt>CSS</dt>\n  <dd>Cascading Style Sheets - Langage de style pour la présentation web</dd>\n  \n  <dt>JavaScript</dt>\n  <dd>Langage de programmation pour l'interactivité web</dd>\n  <dd>Peut être exécuté côté client ou serveur</dd>\n</dl>"
+			}
+		},
+		"05/ Liens et Navigation": {
+			"a. Liens de Base": {
+				"description": "Types de liens essentiels",
+				"code": "<!-- Lien vers une page -->\n<a href=\"about.html\">À propos</a>\n\n<!-- Lien externe -->\n<a href=\"https://www.exemple.com\" target=\"_blank\" rel=\"noopener\">Site externe</a>\n\n<!-- Lien vers email -->\n<a href=\"mailto:contact@monsite.fr\">Nous contacter</a>\n\n<!-- Lien téléphone -->\n<a href=\"tel:+33123456789\">Appeler</a>\n\n<!-- Téléchargement -->\n<a href=\"document.pdf\" download>Télécharger PDF</a>"
+			},
+			"b. Ancres et Navigation Interne": {
+				"description": "Navigation dans la même page",
+				"code": "<!-- Table des matières -->\n<nav>\n  <h2>Sommaire</h2>\n  <ul>\n    <li><a href=\"#introduction\">Introduction</a></li>\n    <li><a href=\"#contenu\">Contenu principal</a></li>\n    <li><a href=\"#conclusion\">Conclusion</a></li>\n  </ul>\n</nav>\n\n<!-- Sections avec ancres -->\n<section id=\"introduction\">\n  <h2>Introduction</h2>\n  <p>Contenu de l'introduction...</p>\n</section>\n\n<section id=\"contenu\">\n  <h2>Contenu principal</h2>\n  <p>Contenu principal...</p>\n</section>\n\n<!-- Retour en haut -->\n<a href=\"#top\">Retour en haut</a>"
+			},
+			"c. Attributs de Liens": {
+				"description": "Attributs avancés pour les liens",
+				"code": "<!-- Relation et cible -->\n<a href=\"https://exemple.com\" \n   target=\"_blank\" \n   rel=\"noopener noreferrer\"\n   title=\"Ouvre dans un nouvel onglet\">\n  Lien externe sécurisé\n</a>\n\n<!-- Lien pour référencement -->\n<a href=\"article-connexe.html\" rel=\"next\">Article suivant</a>\n<a href=\"article-precedent.html\" rel=\"prev\">Article précédent</a>\n\n<!-- Type de contenu -->\n<a href=\"document.pdf\" type=\"application/pdf\">Document PDF</a>\n<a href=\"video.mp4\" type=\"video/mp4\">Voir la vidéo</a>"
+			}
+		},
+		"06/ Images et Médias": {
+			"a. Images Basiques": {
+				"description": "Intégration d'images avec attributs",
+				"code": "<!-- Image basique -->\n<img src=\"photo.jpg\" alt=\"Description de l'image\" width=\"300\" height=\"200\">\n\n<!-- Image responsive -->\n<img src=\"hero.jpg\" \n     alt=\"Image d'en-tête\"\n     style=\"max-width: 100%; height: auto;\">\n\n<!-- Image avec légende -->\n<figure>\n  <img src=\"graphique.png\" alt=\"Graphique des ventes 2024\">\n  <figcaption>Figure 1 : Évolution des ventes en 2024</figcaption>\n</figure>"
+			},
+			"b. Images Responsives": {
+				"description": "Images adaptatives pour différents écrans",
+				"code": "<!-- Srcset pour différentes résolutions -->\n<img src=\"image-400.jpg\"\n     srcset=\"image-400.jpg 400w,\n             image-800.jpg 800w,\n             image-1200.jpg 1200w\"\n     sizes=\"(max-width: 600px) 400px,\n            (max-width: 1000px) 800px,\n            1200px\"\n     alt=\"Image responsive\">\n\n<!-- Picture pour différents formats -->\n<picture>\n  <source media=\"(min-width: 800px)\" srcset=\"large.webp\" type=\"image/webp\">\n  <source media=\"(min-width: 400px)\" srcset=\"medium.webp\" type=\"image/webp\">\n  <source srcset=\"small.webp\" type=\"image/webp\">\n  <img src=\"fallback.jpg\" alt=\"Image de secours\">\n</picture>"
+			},
+			"c. Audio": {
+				"description": "Intégration audio avec contrôles",
+				"code": "<!-- Audio basique -->\n<audio controls>\n  <source src=\"audio.mp3\" type=\"audio/mpeg\">\n  <source src=\"audio.ogg\" type=\"audio/ogg\">\n  Votre navigateur ne supporte pas l'élément audio.\n</audio>\n\n<!-- Audio avec options -->\n<audio controls autoplay loop muted>\n  <source src=\"musique.mp3\" type=\"audio/mpeg\">\n  <source src=\"musique.wav\" type=\"audio/wav\">\n  <p>Votre navigateur ne supporte pas l'audio HTML5.</p>\n</audio>\n\n<!-- Audio avec piste de texte -->\n<audio controls>\n  <source src=\"podcast.mp3\" type=\"audio/mpeg\">\n  <track kind=\"subtitles\" src=\"subtitles.vtt\" srclang=\"fr\" label=\"Français\">\n</audio>"
+			},
+			"d. Vidéo": {
+				"description": "Intégration vidéo avec options avancées",
+				"code": "<!-- Vidéo basique -->\n<video controls width=\"600\" height=\"400\">\n  <source src=\"video.mp4\" type=\"video/mp4\">\n  <source src=\"video.webm\" type=\"video/webm\">\n  Votre navigateur ne supporte pas l'élément vidéo.\n</video>\n\n<!-- Vidéo avec poster et options -->\n<video controls \n       width=\"800\" \n       height=\"450\"\n       poster=\"miniature.jpg\"\n       preload=\"metadata\">\n  <source src=\"film.mp4\" type=\"video/mp4\">\n  <source src=\"film.webm\" type=\"video/webm\">\n  <track kind=\"subtitles\" src=\"subtitles-fr.vtt\" srclang=\"fr\" label=\"Français\" default>\n  <track kind=\"subtitles\" src=\"subtitles-en.vtt\" srclang=\"en\" label=\"English\">\n  <p>Votre navigateur ne supporte pas les vidéos HTML5.</p>\n</video>"
+			}
+		},
+		"07/ Tableaux": {
+			"a. Tableau de Base": {
+				"description": "Structure de tableau simple",
+				"code": "<table>\n  <tr>\n    <th>Nom</th>\n    <th>Âge</th>\n    <th>Ville</th>\n  </tr>\n  <tr>\n    <td>Alice</td>\n    <td>25</td>\n    <td>Paris</td>\n  </tr>\n  <tr>\n    <td>Bob</td>\n    <td>30</td>\n    <td>Lyon</td>\n  </tr>\n</table>"
+			},
+			"b. Tableau Complet": {
+				"description": "Tableau avec en-tête, corps et pied",
+				"code": "<table>\n  <caption>Résultats des ventes par trimestre</caption>\n  <thead>\n    <tr>\n      <th scope=\"col\">Produit</th>\n      <th scope=\"col\">Q1</th>\n      <th scope=\"col\">Q2</th>\n      <th scope=\"col\">Q3</th>\n      <th scope=\"col\">Q4</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th scope=\"row\">Ordinateurs</th>\n      <td>150</td>\n      <td>180</td>\n      <td>200</td>\n      <td>220</td>\n    </tr>\n    <tr>\n      <th scope=\"row\">Tablettes</th>\n      <td>80</td>\n      <td>95</td>\n      <td>110</td>\n      <td>125</td>\n    </tr>\n  </tbody>\n  <tfoot>\n    <tr>\n      <th scope=\"row\">Total</th>\n      <td>230</td>\n      <td>275</td>\n      <td>310</td>\n      <td>345</td>\n    </tr>\n  </tfoot>\n</table>"
+			},
+			"c. Fusion de Cellules": {
+				"description": "Cellules étendues sur plusieurs colonnes/lignes",
+				"code": "<table>\n  <tr>\n    <th>Nom</th>\n    <th colspan=\"2\">Contact</th>\n    <th>Notes</th>\n  </tr>\n  <tr>\n    <td>Jean Dupont</td>\n    <td>Email</td>\n    <td>jean@email.com</td>\n    <td rowspan=\"2\">Client VIP</td>\n  </tr>\n  <tr>\n    <td>Marie Martin</td>\n    <td>Téléphone</td>\n    <td>01 23 45 67 89</td>\n  </tr>\n</table>"
+			},
+			"d. Groupes de Colonnes": {
+				"description": "Groupement et stylisation de colonnes",
+				"code": "<table>\n  <colgroup>\n    <col style=\"background-color: #f0f0f0;\">\n    <col span=\"2\" style=\"background-color: #e0e0e0;\">\n    <col style=\"background-color: #d0d0d0;\">\n  </colgroup>\n  <thead>\n    <tr>\n      <th>Produit</th>\n      <th>Prix</th>\n      <th>Quantité</th>\n      <th>Total</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Ordinateur</td>\n      <td>800€</td>\n      <td>2</td>\n      <td>1600€</td>\n    </tr>\n    <tr>\n      <td>Souris</td>\n      <td>25€</td>\n      <td>5</td>\n      <td>125€</td>\n    </tr>\n  </tbody>\n</table>"
+			}
+		},
+		"08/ Formulaires": {
+			"a. Formulaire de Base": {
+				"description": "Structure de formulaire simple",
+				"code": "<form action=\"/submit\" method=\"post\">\n  <label for=\"nom\">Nom :</label>\n  <input type=\"text\" id=\"nom\" name=\"nom\" required>\n  \n  <label for=\"email\">Email :</label>\n  <input type=\"email\" id=\"email\" name=\"email\" required>\n  \n  <label for=\"message\">Message :</label>\n  <textarea id=\"message\" name=\"message\" rows=\"4\" cols=\"50\"></textarea>\n  \n  <button type=\"submit\">Envoyer</button>\n</form>"
+			},
+			"b. Types d'Input HTML5": {
+				"description": "Nouveaux types de champs HTML5",
+				"code": "<!-- Types de base -->\n<input type=\"text\" placeholder=\"Texte\">\n<input type=\"password\" placeholder=\"Mot de passe\">\n<input type=\"email\" placeholder=\"email@exemple.com\">\n<input type=\"url\" placeholder=\"https://exemple.com\">\n<input type=\"tel\" placeholder=\"+33 1 23 45 67 89\">\n\n<!-- Types numériques -->\n<input type=\"number\" min=\"0\" max=\"100\" step=\"5\">\n<input type=\"range\" min=\"0\" max=\"100\" value=\"50\">\n\n<!-- Types temporels -->\n<input type=\"date\">\n<input type=\"time\">\n<input type=\"datetime-local\">\n<input type=\"month\">\n<input type=\"week\">\n\n<!-- Types de fichiers -->\n<input type=\"file\" accept=\".pdf,.doc,.docx\">\n<input type=\"file\" accept=\"image/*\" multiple>\n\n<!-- Autres types -->\n<input type=\"color\">\n<input type=\"search\" placeholder=\"Rechercher...\">"
+			},
+			"c. Éléments de Sélection": {
+				"description": "Cases à cocher, boutons radio et sélecteurs",
+				"code": "<!-- Cases à cocher -->\n<fieldset>\n  <legend>Intérêts :</legend>\n  <input type=\"checkbox\" id=\"web\" name=\"interets\" value=\"web\">\n  <label for=\"web\">Développement web</label>\n  \n  <input type=\"checkbox\" id=\"mobile\" name=\"interets\" value=\"mobile\">\n  <label for=\"mobile\">Applications mobiles</label>\n</fieldset>\n\n<!-- Boutons radio -->\n<fieldset>\n  <legend>Niveau d'expérience :</legend>\n  <input type=\"radio\" id=\"debutant\" name=\"niveau\" value=\"debutant\">\n  <label for=\"debutant\">Débutant</label>\n  \n  <input type=\"radio\" id=\"intermediaire\" name=\"niveau\" value=\"intermediaire\">\n  <label for=\"intermediaire\">Intermédiaire</label>\n  \n  <input type=\"radio\" id=\"expert\" name=\"niveau\" value=\"expert\">\n  <label for=\"expert\">Expert</label>\n</fieldset>\n\n<!-- Menu déroulant -->\n<label for=\"pays\">Pays :</label>\n<select id=\"pays\" name=\"pays\">\n  <option value=\"\">Choisissez un pays</option>\n  <option value=\"fr\">France</option>\n  <option value=\"be\">Belgique</option>\n  <option value=\"ch\">Suisse</option>\n  <option value=\"ca\">Canada</option>\n</select>"
+			},
+			"d. Validation et Attributs": {
+				"description": "Validation native et attributs avancés",
+				"code": "<!-- Champs obligatoires -->\n<input type=\"text\" name=\"nom\" required placeholder=\"Nom obligatoire\">\n\n<!-- Contraintes de longueur -->\n<input type=\"text\" name=\"username\" \n       minlength=\"3\" \n       maxlength=\"20\" \n       placeholder=\"3-20 caractères\">\n\n<!-- Motif regex -->\n<input type=\"text\" name=\"code_postal\" \n       pattern=\"[0-9]{5}\" \n       placeholder=\"Code postal (5 chiffres)\"\n       title=\"Le code postal doit contenir 5 chiffres\">\n\n<!-- Auto-complétion -->\n<input type=\"email\" name=\"email\" \n       autocomplete=\"email\"\n       list=\"emails\">\n<datalist id=\"emails\">\n  <option value=\"user@gmail.com\">\n  <option value=\"user@yahoo.com\">\n  <option value=\"user@hotmail.com\">\n</datalist>\n\n<!-- Champ en lecture seule -->\n<input type=\"text\" name=\"id\" value=\"12345\" readonly>\n\n<!-- Champ désactivé -->\n<input type=\"text\" name=\"temp\" disabled placeholder=\"Temporairement désactivé\">"
+			},
+			"e. Formulaire Avancé": {
+	"description": "Formulaire complexe avec groupes et validation",
+	"code": "<form novalidate>\n  <fieldset>\n    <legend>Informations personnelles</legend>\n    \n    <div>\n      <label for=\"prenom\">Prénom :</label>\n      <input type=\"text\" id=\"prenom\" name=\"prenom\" required>\n    </div>\n    \n    <div>\n      <label for=\"nom\">Nom :</label>\n      <input type=\"text\" id=\"nom\" name=\"nom\" required>\n    </div>\n    \n    <div>\n      <label for=\"naissance\">Date de naissance :</label>\n      <input type=\"date\" id=\"naissance\" name=\"naissance\">\n    </div>\n  </fieldset>\n  \n  <fieldset>\n    <legend>Contact</legend>\n    \n    <div>\n      <label for=\"email\">Email :</label>\n      <input type=\"email\" id=\"email\" name=\"email\" required>\n    </div>\n    \n    <div>\n      <label for=\"tel\">Téléphone :</label>\n      <input type=\"tel\" id=\"tel\" name=\"tel\">\n    </div>\n  </fieldset>\n  \n  <div>\n    <label for=\"commentaires\">Commentaires :</label>\n    <textarea id=\"commentaires\" name=\"commentaires\" \n              rows=\"5\" cols=\"40\" \n              placeholder=\"Vos commentaires...\"></textarea>\n  </div>\n  \n  <div>\n    <button type=\"submit\">Envoyer</button>\n    <button type=\"reset\">Réinitialiser</button>\n  </div>\n</form>"
+}
+			
+			},
+		"09/ Éléments Interactifs": {
+			"a. Details et Summary": {
+				"description": "Contenu pliable et dépliable",
+				"code": "<!-- Details basique -->\n<details>\n  <summary>Cliquez pour voir plus</summary>\n  <p>Contenu caché qui s'affiche quand on clique sur le résumé.</p>\n</details>\n\n<!-- Details ouvert par défaut -->\n<details open>\n  <summary>Section FAQ</summary>\n  <div>\n    <h4>Comment fonctionne HTML5 ?</h4>\n    <p>HTML5 est la cinquième version du langage de balisage HTML...</p>\n    \n    <h4>Quels sont les nouveaux éléments ?</h4>\n    <p>HTML5 introduit de nombreux nouveaux éléments sémantiques...</p>\n  </div>\n</details>\n\n<!-- Details imbriqués -->\n<details>\n  <summary>Guide complet</summary>\n  <details>\n    <summary>Chapitre 1 : Introduction</summary>\n    <p>Contenu du chapitre 1...</p>\n  </details>\n  <details>\n    <summary>Chapitre 2 : Éléments</summary>\n    <p>Contenu du chapitre 2...</p>\n  </details>\n</details>"
+			},
+			"b. Dialog": {
+				"description": "Boîtes de dialogue modales",
+				"code": "<!-- Dialog HTML -->\n<dialog id=\"monDialog\">\n  <form method=\"dialog\">\n    <h2>Confirmer l'action</h2>\n    <p>Êtes-vous sûr de vouloir supprimer cet élément ?</p>\n    <div>\n      <button value=\"annuler\">Annuler</button>\n      <button value=\"confirmer\">Confirmer</button>\n    </div>\n  </form>\n</dialog>\n\n<button onclick=\"document.getElementById('monDialog').showModal()\">\n  Ouvrir la boîte de dialogue\n</button>\n\n<!-- Dialog avec backdrop -->\n<dialog id=\"infoDialog\">\n  <div>\n    <h3>Information</h3>\n    <p>Voici une information importante.</p>\n    <button onclick=\"this.closest('dialog').close()\">Fermer</button>\n  </div>\n</dialog>"
+			},
+			"c. Progress": {
+				"description": "Barres de progression",
+				"code": "<!-- Barre de progression déterminée -->\n<label for=\"telechargement\">Progression du téléchargement :</label>\n<progress id=\"telechargement\" value=\"70\" max=\"100\">70%</progress>\n\n<!-- Barre de progression indéterminée -->\n<label for=\"chargement\">Chargement en cours...</label>\n<progress id=\"chargement\"></progress>\n\n<!-- Avec texte de fallback -->\n<progress value=\"25\" max=\"100\">\n  25% (pour les navigateurs qui ne supportent pas progress)\n</progress>\n\n<!-- Stylisée avec attributs -->\n<div>\n  <label for=\"upload\">Upload : </label>\n  <progress id=\"upload\" value=\"45\" max=\"100\" title=\"45% complété\">45%</progress>\n  <span>45/100</span>\n</div>"
+			},
+			"d. Meter": {
+				"description": "Indicateur de mesure/jauge",
+				"code": "<!-- Jauge basique -->\n<label for=\"batterie\">Niveau de batterie :</label>\n<meter id=\"batterie\" value=\"75\" min=\"0\" max=\"100\">75%</meter>\n\n<!-- Jauge avec seuils -->\n<label for=\"disque\">Espace disque :</label>\n<meter id=\"disque\" \n       value=\"850\" \n       min=\"0\" \n       max=\"1000\"\n       low=\"200\"\n       high=\"800\"\n       optimum=\"100\">\n  850 MB sur 1000 MB utilisés\n</meter>\n\n<!-- Différents types de mesures -->\n<div>\n  <label>Température : </label>\n  <meter value=\"28\" min=\"0\" max=\"40\" optimum=\"21\">28°C</meter>\n</div>\n\n<div>\n  <label>Score : </label>\n  <meter value=\"8.5\" min=\"0\" max=\"10\" high=\"8\" optimum=\"10\">8.5/10</meter>\n</div>"
+			}
+		},
+		"10/ Canvas et SVG": {
+			"a. Canvas de Base": {
+				"description": "Élément canvas pour dessiner",
+				"code": "<!-- Canvas HTML -->\n<canvas id=\"monCanvas\" width=\"400\" height=\"300\">\n  Votre navigateur ne supporte pas Canvas.\n</canvas>\n\n<!-- JavaScript pour dessiner -->\n<script>\n  const canvas = document.getElementById('monCanvas');\n  const ctx = canvas.getContext('2d');\n  \n  // Rectangle\n  ctx.fillStyle = '#ff6b6b';\n  ctx.fillRect(50, 50, 100, 80);\n  \n  // Cercle\n  ctx.beginPath();\n  ctx.arc(250, 90, 40, 0, 2 * Math.PI);\n  ctx.fillStyle = '#4ecdc4';\n  ctx.fill();\n  \n  // Ligne\n  ctx.beginPath();\n  ctx.moveTo(50, 200);\n  ctx.lineTo(350, 250);\n  ctx.strokeStyle = '#45b7d1';\n  ctx.lineWidth = 3;\n  ctx.stroke();\n</script>"
+			},
+			"b. SVG Intégré": {
+				"description": "Graphiques vectoriels SVG dans HTML",
+				"code": "<!-- SVG simple -->\n<svg width=\"200\" height=\"150\">\n  <rect x=\"10\" y=\"10\" width=\"80\" height=\"60\" fill=\"#ff6b6b\" stroke=\"#333\" stroke-width=\"2\"/>\n  <circle cx=\"140\" cy=\"40\" r=\"30\" fill=\"#4ecdc4\"/>\n  <line x1=\"10\" y1=\"100\" x2=\"180\" y2=\"120\" stroke=\"#45b7d1\" stroke-width=\"3\"/>\n  <text x=\"50\" y=\"140\" font-family=\"Arial\" font-size=\"14\" fill=\"#333\">SVG Text</text>\n</svg>\n\n<!-- SVG avec animations -->\n<svg width=\"200\" height=\"100\">\n  <circle cx=\"50\" cy=\"50\" r=\"20\" fill=\"#ff6b6b\">\n    <animate attributeName=\"cx\" values=\"50;150;50\" dur=\"2s\" repeatCount=\"indefinite\"/>\n  </circle>\n</svg>\n\n<!-- SVG complexe -->\n<svg viewBox=\"0 0 300 200\" width=\"300\" height=\"200\">\n  <defs>\n    <linearGradient id=\"gradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n      <stop offset=\"0%\" style=\"stop-color:#ff6b6b;stop-opacity:1\" />\n      <stop offset=\"100%\" style=\"stop-color:#4ecdc4;stop-opacity:1\" />\n    </linearGradient>\n  </defs>\n  <path d=\"M50,150 Q150,50 250,150\" stroke=\"url(#gradient)\" stroke-width=\"5\" fill=\"none\"/>\n</svg>"
+			}
+		},
+		"11/ Nouveaux Éléments HTML5": {
+			"a. Time": {
+				"description": "Élément pour dates et heures",
+				"code": "<!-- Date simple -->\n<p>Publié le <time datetime=\"2024-01-15\">15 janvier 2024</time></p>\n\n<!-- Date et heure complète -->\n<p>Événement : <time datetime=\"2024-12-31T23:59:59\">31 décembre 2024 à 23h59</time></p>\n\n<!-- Durée -->\n<p>Durée du film : <time datetime=\"PT2H30M\">2 heures 30 minutes</time></p>\n\n<!-- Date lisible vs machine -->\n<p>Rendez-vous le <time datetime=\"2024-03-15T14:30\">vendredi 15 mars à 14h30</time></p>\n\n<!-- Date relative -->\n<p>Publié <time datetime=\"2024-01-10\" title=\"10 janvier 2024\">il y a 5 jours</time></p>"
+			},
+			"b. Address": {
+				"description": "Informations de contact",
+				"code": "<!-- Adresse d'auteur -->\n<address>\n  <strong>Jean Dupont</strong><br>\n  Développeur Web<br>\n  <a href=\"mailto:jean@exemple.com\">jean@exemple.com</a><br>\n  <a href=\"tel:+33123456789\">01 23 45 67 89</a>\n</address>\n\n<!-- Adresse dans un article -->\n<article>\n  <h2>Guide HTML5</h2>\n  <p>Contenu de l'article...</p>\n  \n  <footer>\n    <address>\n      Par <a href=\"mailto:auteur@site.com\">Marie Martin</a>\n    </address>\n    <time datetime=\"2024-01-15\">15 janvier 2024</time>\n  </footer>\n</article>\n\n<!-- Adresse physique -->\n<address>\n  <strong>Notre Bureau</strong><br>\n  123 Rue de la Paix<br>\n  75001 Paris<br>\n  France\n</address>"
+			},
+			"c. Wbr": {
+				"description": "Opportunité de saut de ligne",
+				"code": "<!-- URL longue avec points de rupture -->\n<p>Visitez notre site : \nhttps://www.<wbr>exemple<wbr>.com/<wbr>tres-long-chemin/<wbr>vers-la-page/<wbr>finale.html</p>\n\n<!-- Nom de fichier long -->\n<p>Fichier : mon<wbr>-tres<wbr>-long<wbr>-nom<wbr>-de<wbr>-fichier<wbr>-document.pdf</p>\n\n<!-- Code avec points de rupture -->\n<code>function<wbr>AvecUnNom<wbr>TresLong<wbr>EtComplique<wbr>PourLexemple() { }</code>\n\n<!-- Comparaison avec et sans wbr -->\n<div style=\"width: 200px; border: 1px solid #ccc; padding: 10px;\">\n  <p>Sans wbr : supercalifragilistiqueexpialidocious</p>\n  <p>Avec wbr : super<wbr>califragilisti<wbr>queexpiali<wbr>docious</p>\n</div>"
+			}
+		},
+		"12/ Accessibilité": {
+			"a. Attributs ARIA": {
+				"description": "Améliorer l'accessibilité avec ARIA",
+				"code": "<!-- Rôles et propriétés -->\n<nav role=\"navigation\" aria-label=\"Navigation principale\">\n  <ul>\n    <li><a href=\"#\" aria-current=\"page\">Accueil</a></li>\n    <li><a href=\"#\">À propos</a></li>\n    <li><a href=\"#\">Contact</a></li>\n  </ul>\n</nav>\n\n<!-- États et propriétés -->\n<button aria-expanded=\"false\" aria-controls=\"menu\">Menu</button>\n<div id=\"menu\" aria-hidden=\"true\">\n  <!-- Contenu du menu -->\n</div>\n\n<!-- Landmarks -->\n<main role=\"main\" aria-labelledby=\"main-title\">\n  <h1 id=\"main-title\">Contenu principal</h1>\n</main>\n\n<!-- Live regions -->\n<div aria-live=\"polite\" aria-atomic=\"true\" id=\"status\">\n  <!-- Messages de statut -->\n</div>"
+			},
+			"b. Navigation au Clavier": {
+				"description": "Éléments accessibles au clavier",
+				"code": "<!-- Ordre de tabulation -->\n<input type=\"text\" tabindex=\"1\" placeholder=\"Premier champ\">\n<input type=\"text\" tabindex=\"3\" placeholder=\"Troisième champ\">\n<input type=\"text\" tabindex=\"2\" placeholder=\"Deuxième champ\">\n<button tabindex=\"4\">Soumettre</button>\n\n<!-- Liens d'évitement -->\n<a href=\"#main-content\" class=\"skip-link\">Aller au contenu principal</a>\n<a href=\"#navigation\" class=\"skip-link\">Aller à la navigation</a>\n\n<nav id=\"navigation\">\n  <!-- Navigation -->\n</nav>\n\n<main id=\"main-content\">\n  <!-- Contenu principal -->\n</main>\n\n<!-- Focus visible -->\n<style>\n  .skip-link {\n    position: absolute;\n    top: -40px;\n    left: 6px;\n    z-index: 1000;\n  }\n  .skip-link:focus {\n    top: 6px;\n  }\n</style>"
+			},
+			"c. Textes Alternatifs": {
+				"description": "Descriptions pour le contenu non-textuel",
+				"code": "<!-- Images informatives -->\n<img src=\"graphique.png\" alt=\"Augmentation de 25% des ventes en 2024\">\n\n<!-- Images décoratives -->\n<img src=\"decoration.png\" alt=\"\" role=\"presentation\">\n\n<!-- Images complexes -->\n<figure>\n  <img src=\"organigramme.png\" alt=\"Organigramme de l'entreprise\">\n  <figcaption>\n    Organigramme montrant la hiérarchie : \n    PDG en haut, puis directeurs des ventes, marketing et technique.\n  </figcaption>\n</figure>\n\n<!-- Contenu audio/vidéo -->\n<video controls>\n  <source src=\"presentation.mp4\" type=\"video/mp4\">\n  <track kind=\"subtitles\" src=\"subtitles-fr.vtt\" srclang=\"fr\" label=\"Français\">\n  <track kind=\"descriptions\" src=\"descriptions-fr.vtt\" srclang=\"fr\" label=\"Descriptions audio\">\n</video>"
+			}
+		},
+		"13/ Métadonnées et SEO": {
+			"a. Métadonnées Essentielles": {
+				"description": "Balises meta pour le référencement",
+				"code": "<!-- Métadonnées de base -->\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<meta name=\"description\" content=\"Description concise de la page (150-160 caractères)\">\n<meta name=\"keywords\" content=\"mot-clé1, mot-clé2, mot-clé3\">\n<meta name=\"author\" content=\"Nom de l'auteur\">\n<meta name=\"robots\" content=\"index, follow\">\n\n<!-- Open Graph pour réseaux sociaux -->\n<meta property=\"og:title\" content=\"Titre de la page\">\n<meta property=\"og:description\" content=\"Description pour les réseaux sociaux\">\n<meta property=\"og:image\" content=\"https://exemple.com/image.jpg\">\n<meta property=\"og:url\" content=\"https://exemple.com/page\">\n<meta property=\"og:type\" content=\"website\">\n\n<!-- Twitter Cards -->\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:title\" content=\"Titre pour Twitter\">\n<meta name=\"twitter:description\" content=\"Description pour Twitter\">\n<meta name=\"twitter:image\" content=\"https://exemple.com/twitter-image.jpg\">"
+			},
+			"b. Liens et Relations": {
+				"description": "Relations entre documents",
+				"code": "<!-- Feuilles de style -->\n<link rel=\"stylesheet\" href=\"styles.css\">\n<link rel=\"alternate stylesheet\" href=\"print.css\" media=\"print\">\n\n<!-- Icônes -->\n<link rel=\"icon\" href=\"favicon.ico\" type=\"image/x-icon\">\n<link rel=\"apple-touch-icon\" href=\"apple-icon.png\">\n\n<!-- Flux et syndication -->\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Flux RSS\" href=\"feed.xml\">\n\n<!-- Navigation -->\n<link rel=\"prev\" href=\"page1.html\" title=\"Page précédente\">\n<link rel=\"next\" href=\"page3.html\" title=\"Page suivante\">\n<link rel=\"canonical\" href=\"https://exemple.com/page-officielle\">\n\n<!-- Préchargement -->\n<link rel=\"preload\" href=\"font.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n<link rel=\"prefetch\" href=\"page-suivante.html\">\n<link rel=\"dns-prefetch\" href=\"//fonts.googleapis.com\">"
+			},
+			"c. Données Structurées": {
+				"description": "Microdata et Schema.org",
+				"code": "<!-- Article avec microdata -->\n<article itemscope itemtype=\"https://schema.org/BlogPosting\">\n  <h1 itemprop=\"headline\">Guide HTML5 Complet</h1>\n  \n  <div itemprop=\"author\" itemscope itemtype=\"https://schema.org/Person\">\n    Par <span itemprop=\"name\">Jean Dupont</span>\n  </div>\n  \n  <time itemprop=\"datePublished\" datetime=\"2024-01-15\">15 janvier 2024</time>\n  \n  <div itemprop=\"articleBody\">\n    <p>Contenu de l'article...</p>\n  </div>\n</article>\n\n<!-- Entreprise locale -->\n<div itemscope itemtype=\"https://schema.org/LocalBusiness\">\n  <h2 itemprop=\"name\">Restaurant Le Gourmet</h2>\n  <div itemprop=\"address\" itemscope itemtype=\"https://schema.org/PostalAddress\">\n    <span itemprop=\"streetAddress\">123 Rue de la Paix</span>,\n    <span itemprop=\"addressLocality\">Paris</span>\n    <span itemprop=\"postalCode\">75001</span>\n  </div>\n  \n  <span itemprop=\"telephone\">01 23 45 67 89</span>\n  \n  <div itemprop=\"aggregateRating\" itemscope itemtype=\"https://schema.org/AggregateRating\">\n    Note : <span itemprop=\"ratingValue\">4.5</span>/5\n    (<span itemprop=\"reviewCount\">127</span> avis)\n  </div>\n</div>"
+			}
+		},
+		"14/ API HTML5": {
+			"a. Geolocation API": {
+				"description": "Obtenir la position géographique",
+				"code": "<!-- HTML -->\n<button onclick=\"obtenirPosition()\">Obtenir ma position</button>\n<div id=\"position\"></div>\n\n<!-- JavaScript -->\n<script>\nfunction obtenirPosition() {\n  if (navigator.geolocation) {\n    navigator.geolocation.getCurrentPosition(\n      function(position) {\n        const lat = position.coords.latitude;\n        const lon = position.coords.longitude;\n        \n        document.getElementById('position').innerHTML = \n          `Latitude: ${lat}<br>Longitude: ${lon}`;\n      },\n      function(error) {\n        console.error('Erreur de géolocalisation:', error.message);\n      },\n      {\n        enableHighAccuracy: true,\n        timeout: 10000,\n        maximumAge: 600000\n      }\n    );\n  } else {\n    alert('La géolocalisation n\\'est pas supportée.');\n  }\n}\n</script>"
+			},
+			"b. Web Storage": {
+				"description": "Stockage local et session",
+				"code": "<!-- HTML -->\n<input type=\"text\" id=\"nom\" placeholder=\"Votre nom\">\n<button onclick=\"sauvegarder()\">Sauvegarder</button>\n<button onclick=\"charger()\">Charger</button>\n<button onclick=\"effacer()\">Effacer</button>\n<div id=\"resultat\"></div>\n\n<!-- JavaScript -->\n<script>\n// LocalStorage (persistant)\nfunction sauvegarder() {\n  const nom = document.getElementById('nom').value;\n  localStorage.setItem('nomUtilisateur', nom);\n  \n  // Stockage d'objet\n  const utilisateur = {\n    nom: nom,\n    date: new Date().toISOString()\n  };\n  localStorage.setItem('utilisateur', JSON.stringify(utilisateur));\n}\n\nfunction charger() {\n  const nom = localStorage.getItem('nomUtilisateur');\n  const utilisateur = JSON.parse(localStorage.getItem('utilisateur'));\n  \n  document.getElementById('resultat').innerHTML = \n    `Nom: ${nom}<br>Sauvegardé: ${utilisateur?.date}`;\n}\n\nfunction effacer() {\n  localStorage.removeItem('nomUtilisateur');\n  // ou localStorage.clear(); pour tout effacer\n}\n\n// SessionStorage (temporaire)\nsessionStorage.setItem('session', 'données temporaires');\n</script>"
+			},
+			"c. Drag and Drop": {
+				"description": "Glisser-déposer natif",
+				"code": "<!-- HTML -->\n<div class=\"conteneur\">\n  <div class=\"element\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"elem1\">\n    Élément 1\n  </div>\n  <div class=\"element\" draggable=\"true\" ondragstart=\"drag(event)\" id=\"elem2\">\n    Élément 2\n  </div>\n</div>\n\n<div class=\"zone-depot\" \n     ondrop=\"drop(event)\" \n     ondragover=\"allowDrop(event)\">\n  Zone de dépôt\n</div>\n\n<!-- CSS -->\n<style>\n.element {\n  width: 100px;\n  height: 50px;\n  background: #4CAF50;\n  margin: 5px;\n  cursor: move;\n  text-align: center;\n  line-height: 50px;\n  color: white;\n}\n\n.zone-depot {\n  width: 200px;\n  height: 150px;\n  border: 2px dashed #ccc;\n  text-align: center;\n  line-height: 150px;\n  margin-top: 20px;\n}\n\n.zone-depot.dragover {\n  background-color: #f0f0f0;\n  border-color: #4CAF50;\n}\n</style>\n\n<!-- JavaScript -->\n<script>\nfunction allowDrop(ev) {\n  ev.preventDefault();\n  ev.target.classList.add('dragover');\n}\n\nfunction drag(ev) {\n  ev.dataTransfer.setData(\"text\", ev.target.id);\n}\n\nfunction drop(ev) {\n  ev.preventDefault();\n  const data = ev.dataTransfer.getData(\"text\");\n  ev.target.appendChild(document.getElementById(data));\n  ev.target.classList.remove('dragover');\n}\n</script>"
+			}
+		},
+		"15/ Bonnes Pratiques": {
+			"a. Sémantique et Structure": {
+				"description": "Utilisation correcte des éléments sémantiques",
+				"code": "<!-- Structure sémantique correcte -->\n<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>Titre descriptif - Nom du site</title>\n</head>\n<body>\n  <header role=\"banner\">\n    <h1>Logo/Titre du site</h1>\n    <nav role=\"navigation\" aria-label=\"Navigation principale\">\n      <ul>\n        <li><a href=\"/\">Accueil</a></li>\n        <li><a href=\"/about\">À propos</a></li>\n      </ul>\n    </nav>\n  </header>\n  \n  <main role=\"main\">\n    <article>\n      <header>\n        <h1>Titre de l'article</h1>\n        <p>Métadonnées de l'article</p>\n      </header>\n      <section>\n        <h2>Section de contenu</h2>\n        <p>Contenu structuré...</p>\n      </section>\n    </article>\n    \n    <aside role=\"complementary\">\n      <h2>Contenu connexe</h2>\n    </aside>\n  </main>\n  \n  <footer role=\"contentinfo\">\n    <p>&copy; 2024 Nom du site</p>\n  </footer>\n</body>\n</html>"
+			},
+			"b. Performance": {
+				"description": "Optimisation et bonnes pratiques de performance",
+				"code": "<!-- Optimisation des ressources -->\n<head>\n  <!-- DNS prefetch pour domaines externes -->\n  <link rel=\"dns-prefetch\" href=\"//fonts.googleapis.com\">\n  <link rel=\"dns-prefetch\" href=\"//cdn.exemple.com\">\n  \n  <!-- Préchargement critique -->\n  <link rel=\"preload\" href=\"font-critique.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>\n  <link rel=\"preload\" href=\"hero-image.jpg\" as=\"image\">\n  \n  <!-- CSS critique inline, CSS non-critique en defer -->\n  <style>\n    /* CSS critique inline */\n    body { font-family: Arial; margin: 0; }\n    .hero { height: 100vh; }\n  </style>\n  \n  <!-- CSS non-critique chargé de manière asynchrone -->\n  <link rel=\"preload\" href=\"styles.css\" as=\"style\" onload=\"this.onload=null;this.rel='stylesheet'\">\n  <noscript><link rel=\"stylesheet\" href=\"styles.css\"></noscript>\n</head>\n\n<body>\n  <!-- Images responsive avec lazy loading -->\n  <img src=\"placeholder.jpg\" \n       data-src=\"image-reel.jpg\"\n       alt=\"Description\"\n       loading=\"lazy\"\n       width=\"800\" \n       height=\"600\">\n  \n  <!-- JavaScript non-bloquant -->\n  <script src=\"script-critique.js\"></script>\n  <script src=\"script-non-critique.js\" async></script>\n  <script src=\"script-apres-dom.js\" defer></script>\n</body>"
+			},
+			"c. Validation et Compatibilité": {
+				"description": "S'assurer de la validité et compatibilité",
+				"code": "<!-- Détection de fonctionnalités -->\n<script>\n// Vérifier le support des fonctionnalités\nif ('geolocation' in navigator) {\n  // Utiliser la géolocalisation\n} else {\n  // Fallback\n}\n\nif (typeof(Storage) !== \"undefined\") {\n  // LocalStorage supporté\n} else {\n  // Utiliser cookies ou autre méthode\n}\n\n// Modernizr pour détection avancée\nif (Modernizr.canvas) {\n  // Canvas supporté\n}\n</script>\n\n<!-- Fallbacks pour contenu média -->\n<video controls>\n  <source src=\"video.webm\" type=\"video/webm\">\n  <source src=\"video.mp4\" type=\"video/mp4\">\n  <source src=\"video.ogv\" type=\"video/ogg\">\n  <p>Votre navigateur ne supporte pas les vidéos HTML5. \n     <a href=\"video.mp4\">Télécharger la vidéo</a>\n  </p>\n</video>\n\n<!-- Progressive enhancement -->\n<div class=\"composant\" data-fonction=\"avancee\">\n  <!-- Contenu de base fonctionnel -->\n  <p>Contenu accessible à tous</p>\n  \n  <!-- Améliorations ajoutées par JavaScript -->\n</div>\n\n<!-- Validation W3C -->\n<!-- Utilisez https://validator.w3.org/ pour valider -->\n<!-- Respectez les standards HTML5 -->"
+			}
+		}
+	}
+}

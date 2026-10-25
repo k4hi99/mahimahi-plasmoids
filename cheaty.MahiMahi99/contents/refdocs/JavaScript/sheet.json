@@ -1,0 +1,246 @@
+{
+	"name": "JavaScript ES2023",
+	"description": "Langage de programmation pour le web - syntaxe moderne et fonctionnalités essentielles",
+	"author": "MahiMahi99",
+	"version": "ES2023",
+	"sections": {
+		"01/ Variables et Types": {
+			"a. Déclaration de Variables": {
+				"description": "Différentes façons de déclarer des variables",
+				"code": "// Variables modernes (recommandées)\nlet nom = \"Claude\";           // Variable modifiable\nconst age = 25;               // Constante (non modifiable)\nconst utilisateur = {};       // Objet modifiable\n\n// Ancienne syntaxe (à éviter)\nvar ancien = \"obsolète\";      // Portée globale/fonction"
+			},
+			"b. Types Primitifs": {
+				"description": "Types de données de base en JavaScript",
+				"code": "// Types primitifs\nlet texte = \"Hello World\";        // String\nlet nombre = 42;                  // Number\nlet decimal = 3.14;\nlet booleen = true;               // Boolean\nlet indefini = undefined;         // Undefined\nlet vide = null;                  // Null\nlet symbole = Symbol('id');       // Symbol\nlet grandNombre = 123n;           // BigInt\n\n// Vérifier le type\nconsole.log(typeof texte);        // \"string\""
+			},
+			"c. Types Complexes": {
+				"description": "Objets, tableaux et fonctions",
+				"code": "// Tableaux\nlet fruits = [\"pomme\", \"banane\", \"orange\"];\nlet nombres = [1, 2, 3, 4, 5];\nlet mixte = [\"texte\", 42, true, null];\n\n// Objets\nlet personne = {\n  nom: \"Alice\",\n  age: 30,\n  actif: true\n};\n\n// Fonctions\nfunction saluer(nom) {\n  return `Bonjour ${nom}!`;\n}\n\nconst multiplier = (a, b) => a * b;"
+			},
+			"d. Template Literals": {
+				"description": "Chaînes de caractères avec interpolation",
+				"code": "const prenom = \"Alice\";\nconst age = 25;\n\n// Template literals (backticks)\nconst message = `Bonjour ${prenom}, vous avez ${age} ans`;\n\n// Chaînes multi-lignes\nconst html = `\n  <div>\n    <h1>${prenom}</h1>\n    <p>Age: ${age}</p>\n  </div>\n`;\n\n// Expressions dans les templates\nconst calcul = `Le résultat est: ${10 + 5}`;"
+			}
+		},
+		"02/ Opérateurs": {
+			"a. Opérateurs Arithmétiques": {
+				"description": "Opérations mathématiques de base",
+				"code": "let a = 10, b = 3;\n\n// Opérateurs de base\nlet addition = a + b;        // 13\nlet soustraction = a - b;    // 7\nlet multiplication = a * b;  // 30\nlet division = a / b;        // 3.333...\nlet modulo = a % b;          // 1 (reste)\nlet puissance = a ** b;      // 1000\n\n// Incrémentation/décrémentation\na++;  // a = 11\nb--;  // b = 2\n++a;  // a = 12\n--b;  // b = 1"
+			},
+			"b. Opérateurs de Comparaison": {
+				"description": "Comparer des valeurs",
+				"code": "// Égalité stricte (recommandée)\n5 === 5      // true\n5 === \"5\"    // false\n\n// Égalité faible (à éviter)\n5 == \"5\"     // true\n\n// Inégalité\n5 !== \"5\"    // true\n5 != \"5\"     // false\n\n// Comparaisons\n10 > 5       // true\n10 < 5       // false\n10 >= 10     // true\n10 <= 9      // false"
+			},
+			"c. Opérateurs Logiques": {
+				"description": "Opérations logiques et booléennes",
+				"code": "let a = true, b = false;\n\n// ET logique\na && b       // false\ntrue && true // true\n\n// OU logique\na || b       // true\nfalse || false // false\n\n// NON logique\n!a           // false\n!b           // true\n\n// Opérateur nullish coalescing\nlet nom = null ?? \"Défaut\";     // \"Défaut\"\nlet age = 0 ?? 25;              // 0 (car 0 n'est pas null/undefined)"
+			},
+			"d. Opérateurs d'Assignment": {
+				"description": "Assigner des valeurs de façon concise",
+				"code": "let x = 10;\n\n// Assignments composés\nx += 5;      // x = x + 5  → 15\nx -= 3;      // x = x - 3  → 12\nx *= 2;      // x = x * 2  → 24\nx /= 4;      // x = x / 4  → 6\nx %= 4;      // x = x % 4  → 2\nx **= 3;     // x = x ** 3 → 8\n\n// Assignment avec opérateurs logiques\nlet nom = nom || \"Défaut\";      // Si nom est falsy\nnom &&= nom.toUpperCase();      // Si nom est truthy\nnom ??= \"Aucun nom\";            // Si nom est null/undefined"
+			}
+		},
+		"03/ Structures de Contrôle": {
+			"a. Conditions if/else": {
+				"description": "Exécution conditionnelle de code",
+				"code": "let age = 18;\n\n// If simple\nif (age >= 18) {\n  console.log(\"Majeur\");\n}\n\n// If/else\nif (age >= 18) {\n  console.log(\"Majeur\");\n} else {\n  console.log(\"Mineur\");\n}\n\n// If/else if/else\nif (age < 13) {\n  console.log(\"Enfant\");\n} else if (age < 18) {\n  console.log(\"Adolescent\");\n} else {\n  console.log(\"Adulte\");\n}"
+			},
+			"b. Switch/Case": {
+				"description": "Sélection multiple basée sur une valeur",
+				"code": "let jour = \"lundi\";\n\nswitch (jour) {\n  case \"lundi\":\n  case \"mardi\":\n  case \"mercredi\":\n  case \"jeudi\":\n  case \"vendredi\":\n    console.log(\"Jour de semaine\");\n    break;\n  case \"samedi\":\n  case \"dimanche\":\n    console.log(\"Week-end\");\n    break;\n  default:\n    console.log(\"Jour invalide\");\n}"
+			},
+			"c. Opérateur Ternaire": {
+				"description": "Condition concise en une ligne",
+				"code": "let age = 20;\n\n// Ternaire simple\nlet statut = age >= 18 ? \"majeur\" : \"mineur\";\n\n// Ternaire chaîné\nlet categorie = age < 13 ? \"enfant\" : \n                age < 18 ? \"adolescent\" : \"adulte\";\n\n// Dans une fonction\nconst getRemise = (age) => age >= 65 ? 0.2 : age <= 12 ? 0.5 : 0;\n\n// Avec assignment\nage >= 18 && (statut = \"peut voter\");"
+			}
+		},
+		"04/ Boucles": {
+			"a. Boucle for": {
+				"description": "Itération avec compteur",
+				"code": "// Boucle for classique\nfor (let i = 0; i < 5; i++) {\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// Décrémentation\nfor (let i = 5; i >= 0; i--) {\n  console.log(i); // 5, 4, 3, 2, 1, 0\n}\n\n// Pas personnalisé\nfor (let i = 0; i < 10; i += 2) {\n  console.log(i); // 0, 2, 4, 6, 8\n}\n\n// Variables multiples\nfor (let i = 0, j = 10; i < j; i++, j--) {\n  console.log(i, j);\n}"
+			},
+			"b. Boucles for...of et for...in": {
+				"description": "Itération sur des collections",
+				"code": "let fruits = [\"pomme\", \"banane\", \"orange\"];\nlet personne = {nom: \"Alice\", age: 25};\n\n// for...of (valeurs) - tableaux, chaînes, etc.\nfor (let fruit of fruits) {\n  console.log(fruit); // pomme, banane, orange\n}\n\n// for...in (clés/indices) - objets, tableaux\nfor (let index in fruits) {\n  console.log(index, fruits[index]); // 0 pomme, 1 banane...\n}\n\nfor (let cle in personne) {\n  console.log(cle, personne[cle]); // nom Alice, age 25\n}"
+			},
+			"c. Boucles while et do...while": {
+				"description": "Itération basée sur une condition",
+				"code": "// While - teste avant d'exécuter\nlet i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\n\n// Do...while - exécute au moins une fois\nlet j = 0;\ndo {\n  console.log(j);\n  j++;\n} while (j < 3);\n\n// Boucle infinie (attention!)\n// while (true) {\n//   if (condition) break;\n// }"
+			},
+			"d. Contrôle de Boucle": {
+				"description": "Interrompre ou continuer l'exécution",
+				"code": "// break - sort de la boucle\nfor (let i = 0; i < 10; i++) {\n  if (i === 5) break;\n  console.log(i); // 0, 1, 2, 3, 4\n}\n\n// continue - passe à l'itération suivante\nfor (let i = 0; i < 5; i++) {\n  if (i === 2) continue;\n  console.log(i); // 0, 1, 3, 4\n}\n\n// Labels (rare)\nouterLoop: for (let i = 0; i < 3; i++) {\n  for (let j = 0; j < 3; j++) {\n    if (i === 1 && j === 1) break outerLoop;\n    console.log(i, j);\n  }\n}"
+			}
+		},
+		"05/ Fonctions": {
+			"a. Déclaration de Fonctions": {
+				"description": "Différentes syntaxes pour créer des fonctions",
+				"code": "// Déclaration de fonction (hissée)\nfunction saluer(nom) {\n  return `Bonjour ${nom}!`;\n}\n\n// Expression de fonction\nconst dire = function(message) {\n  console.log(message);\n};\n\n// Fonction fléchée (ES6+)\nconst multiplier = (a, b) => a * b;\nconst carre = x => x * x;          // Un paramètre\nconst direBonjour = () => \"Bonjour!\"; // Aucun paramètre"
+			},
+			"b. Paramètres de Fonctions": {
+				"description": "Gestion avancée des paramètres",
+				"code": "// Paramètres par défaut\nfunction saluer(nom = \"Anonyme\", age = 0) {\n  return `${nom}, ${age} ans`;\n}\n\n// Paramètres rest (...)\nfunction somme(...nombres) {\n  return nombres.reduce((total, n) => total + n, 0);\n}\n\n// Déstructuration des paramètres\nfunction presenter({nom, age, ville = \"Paris\"}) {\n  return `${nom}, ${age} ans, vit à ${ville}`;\n}\n\nconst personne = {nom: \"Alice\", age: 25};\nprésenter(personne);"
+			},
+			"c. Scope et Closures": {
+				"description": "Portée des variables et fermetures",
+				"code": "// Scope global\nlet global = \"Je suis global\";\n\nfunction exemple() {\n  // Scope local\n  let local = \"Je suis local\";\n  \n  // Closure - fonction qui garde accès aux variables parent\n  function interne() {\n    console.log(global); // Accessible\n    console.log(local);  // Accessible\n  }\n  \n  return interne;\n}\n\n// Factory function avec closure\nfunction compteur(debut = 0) {\n  let count = debut;\n  return () => ++count;\n}\n\nconst monCompteur = compteur(5);\nconsole.log(monCompteur()); // 6"
+			},
+			"d. Méthodes de Fonctions": {
+				"description": "Appeler et manipuler des fonctions",
+				"code": "function saluer(prenom, nom) {\n  return `Bonjour ${prenom} ${nom}!`;\n}\n\n// call() - appel direct avec arguments\nsaluer.call(null, \"Alice\", \"Martin\");\n\n// apply() - appel avec tableau d'arguments\nsaluer.apply(null, [\"Bob\", \"Dupont\"]);\n\n// bind() - créer nouvelle fonction avec contexte\nconst saluerAlice = saluer.bind(null, \"Alice\");\nsaluerAlice(\"Martin\"); // \"Bonjour Alice Martin!\"\n\n// Fonction récursive\nfunction factorielle(n) {\n  return n <= 1 ? 1 : n * factorielle(n - 1);\n}"
+			}
+		},
+		"06/ Tableaux": {
+			"a. Création et Accès": {
+				"description": "Créer et manipuler des tableaux",
+				"code": "// Création de tableaux\nlet fruits = [\"pomme\", \"banane\", \"orange\"];\nlet nombres = new Array(1, 2, 3, 4, 5);\nlet vide = [];\nlet taille = new Array(5);  // 5 éléments undefined\n\n// Accès aux éléments\nconsole.log(fruits[0]);     // \"pomme\"\nconsole.log(fruits[-1]);    // undefined (pas comme Python)\nconsole.log(fruits.at(-1)); // \"orange\" (dernier élément)\n\n// Propriétés\nconsole.log(fruits.length); // 3"
+			},
+			"b. Méthodes de Modification": {
+				"description": "Ajouter, supprimer et modifier des éléments",
+				"code": "let arr = [1, 2, 3];\n\n// Ajouter à la fin\narr.push(4, 5);        // [1, 2, 3, 4, 5]\n\n// Ajouter au début\narr.unshift(0);        // [0, 1, 2, 3, 4, 5]\n\n// Supprimer du début/fin\nlet premier = arr.shift();  // premier = 0, arr = [1, 2, 3, 4, 5]\nlet dernier = arr.pop();    // dernier = 5, arr = [1, 2, 3, 4]\n\n// Splice - supprimer/ajouter à une position\narr.splice(1, 2, 'a', 'b'); // Supprime 2 éléments à l'index 1, ajoute 'a', 'b'\n                             // arr = [1, 'a', 'b', 4]"
+			},
+			"c. Méthodes d'Itération": {
+				"description": "Parcourir et transformer des tableaux",
+				"code": "let nombres = [1, 2, 3, 4, 5];\n\n// forEach - exécute une fonction pour chaque élément\nnombres.forEach((num, index) => {\n  console.log(`Index ${index}: ${num}`);\n});\n\n// map - transforme chaque élément\nlet doubles = nombres.map(num => num * 2);\n// [2, 4, 6, 8, 10]\n\n// filter - filtre les éléments\nlet pairs = nombres.filter(num => num % 2 === 0);\n// [2, 4]\n\n// find - trouve le premier élément correspondant\nlet premierPair = nombres.find(num => num % 2 === 0);\n// 2"
+			},
+			"d. Méthodes de Réduction": {
+				"description": "Réduire un tableau à une seule valeur",
+				"code": "let nombres = [1, 2, 3, 4, 5];\n\n// reduce - réduit à une valeur\nlet somme = nombres.reduce((acc, num) => acc + num, 0);\n// 15\n\n// Avec objet comme accumulateur\nlet stats = nombres.reduce((acc, num) => {\n  acc.somme += num;\n  acc.count++;\n  return acc;\n}, {somme: 0, count: 0});\n\n// every - tous les éléments respectent la condition\nlet tousPositifs = nombres.every(num => num > 0); // true\n\n// some - au moins un élément respecte la condition\nlet aPair = nombres.some(num => num % 2 === 0); // true"
+			},
+			"e. Méthodes Utilitaires": {
+				"description": "Autres méthodes pratiques pour les tableaux",
+				"code": "let arr = [3, 1, 4, 1, 5];\n\n// Trier\nlet trie = [...arr].sort();           // [1, 1, 3, 4, 5]\nlet trieDesc = [...arr].sort((a, b) => b - a); // [5, 4, 3, 1, 1]\n\n// Inverser\nlet inverse = [...arr].reverse();     // [5, 1, 4, 1, 3]\n\n// Joindre\nlet texte = arr.join(', ');           // \"3, 1, 4, 1, 5\"\n\n// Inclut\nlet contient = arr.includes(4);       // true\n\n// Index\nlet position = arr.indexOf(1);        // 1\nlet dernierIndex = arr.lastIndexOf(1); // 3\n\n// Slice - extrait une portion\nlet portion = arr.slice(1, 4);        // [1, 4, 1]"
+			}
+		},
+		"07/ Objets": {
+			"a. Création et Propriétés": {
+				"description": "Créer et manipuler des objets",
+				"code": "// Création d'objets\nlet personne = {\n  nom: \"Alice\",\n  age: 25,\n  actif: true\n};\n\n// Accès aux propriétés\nconsole.log(personne.nom);        // \"Alice\"\nconsole.log(personne['age']);     // 25\n\n// Propriétés dynamiques\nlet cle = 'nom';\nconsole.log(personne[cle]);       // \"Alice\"\n\n// Ajouter/modifier propriétés\npersonne.ville = \"Paris\";\npersonne['profession'] = \"Dev\";"
+			},
+			"b. Méthodes d'Objet": {
+				"description": "Fonctions à l'intérieur d'objets",
+				"code": "let personne = {\n  nom: \"Alice\",\n  age: 25,\n  \n  // Méthode classique\n  saluer: function() {\n    return `Bonjour, je suis ${this.nom}`;\n  },\n  \n  // Méthode raccourcie (ES6)\n  presenter() {\n    return `${this.nom}, ${this.age} ans`;\n  },\n  \n  // Attention: les fonctions fléchées n'ont pas de 'this'\n  // mauvais: () => this.nom\n};\n\nconsole.log(personne.saluer());     // \"Bonjour, je suis Alice\"\nconsole.log(personne.presenter());  // \"Alice, 25 ans\""
+			},
+			"c. Méthodes Object": {
+				"description": "Méthodes statiques pour manipuler les objets",
+				"code": "let personne = {nom: \"Alice\", age: 25, ville: \"Paris\"};\n\n// Obtenir les clés\nlet cles = Object.keys(personne);\n// [\"nom\", \"age\", \"ville\"]\n\n// Obtenir les valeurs\nlet valeurs = Object.values(personne);\n// [\"Alice\", 25, \"Paris\"]\n\n// Obtenir les paires clé-valeur\nlet entrees = Object.entries(personne);\n// [[\"nom\", \"Alice\"], [\"age\", 25], [\"ville\", \"Paris\"]]\n\n// Créer un objet à partir d'entrées\nlet nouvelObjet = Object.fromEntries(entrees);\n\n// Assigner (fusion d'objets)\nlet complet = Object.assign({}, personne, {profession: \"Dev\"});"
+			},
+			"d. Déstructuration": {
+				"description": "Extraire des propriétés d'objets",
+				"code": "let personne = {\n  nom: \"Alice\",\n  age: 25,\n  adresse: {\n    rue: \"123 Main St\",\n    ville: \"Paris\"\n  }\n};\n\n// Déstructuration simple\nlet {nom, age} = personne;\nconsole.log(nom, age); // \"Alice\" 25\n\n// Avec renommage\nlet {nom: prenom, age: annees} = personne;\n\n// Valeurs par défaut\nlet {profession = \"Inconnu\"} = personne;\n\n// Déstructuration imbriquée\nlet {adresse: {ville}} = personne;\n\n// Dans les paramètres de fonction\nfunction saluer({nom, age = 0}) {\n  return `${nom}, ${age} ans`;\n}"
+			}
+		},
+		"08/ Classes et Héritage": {
+			"a. Classes ES6": {
+				"description": "Syntaxe moderne pour créer des classes",
+				"code": "class Personne {\n  // Constructeur\n  constructor(nom, age) {\n    this.nom = nom;\n    this.age = age;\n  }\n  \n  // Méthode\n  saluer() {\n    return `Bonjour, je suis ${this.nom}`;\n  }\n  \n  // Getter\n  get description() {\n    return `${this.nom}, ${this.age} ans`;\n  }\n  \n  // Setter\n  set nouveauNom(nom) {\n    this.nom = nom;\n  }\n  \n  // Méthode statique\n  static creerAdulte(nom) {\n    return new Personne(nom, 18);\n  }\n}\n\nlet alice = new Personne(\"Alice\", 25);"
+			},
+			"b. Héritage": {
+				"description": "Étendre des classes avec extends et super",
+				"code": "class Personne {\n  constructor(nom, age) {\n    this.nom = nom;\n    this.age = age;\n  }\n  \n  presenter() {\n    return `${this.nom}, ${this.age} ans`;\n  }\n}\n\nclass Employe extends Personne {\n  constructor(nom, age, poste) {\n    super(nom, age);  // Appel du constructeur parent\n    this.poste = poste;\n  }\n  \n  presenter() {\n    return super.presenter() + `, ${this.poste}`;\n  }\n  \n  travailler() {\n    return `${this.nom} travaille comme ${this.poste}`;\n  }\n}\n\nlet dev = new Employe(\"Bob\", 30, \"Développeur\");"
+			},
+			"c. Propriétés Privées": {
+				"description": "Encapsulation avec propriétés privées",
+				"code": "class CompteBancaire {\n  // Propriété privée (ES2022)\n  #solde = 0;\n  \n  constructor(soldeInitial) {\n    this.#solde = soldeInitial;\n  }\n  \n  // Méthode privée\n  #validerMontant(montant) {\n    return montant > 0;\n  }\n  \n  deposer(montant) {\n    if (this.#validerMontant(montant)) {\n      this.#solde += montant;\n    }\n  }\n  \n  get solde() {\n    return this.#solde;\n  }\n}\n\nlet compte = new CompteBancaire(100);\n// console.log(compte.#solde); // ❌ Erreur!\nconsole.log(compte.solde);     // ✅ 100"
+			}
+		},
+		"09/ Gestion d'Erreurs": {
+			"a. Try/Catch/Finally": {
+				"description": "Capturer et gérer les erreurs",
+				"code": "try {\n  // Code qui peut générer une erreur\n  let resultat = 10 / 0;\n  let objet = JSON.parse('{invalid json}');\n} catch (erreur) {\n  // Gérer l'erreur\n  console.log('Erreur attrapée:', erreur.message);\n} finally {\n  // Code exécuté dans tous les cas\n  console.log('Nettoyage terminé');\n}\n\n// Catch spécifique selon le type d'erreur\ntry {\n  JSON.parse('invalid');\n} catch (erreur) {\n  if (erreur instanceof SyntaxError) {\n    console.log('Erreur de syntaxe JSON');\n  }\n}"
+			},
+			"b. Créer des Erreurs": {
+				"description": "Lancer des erreurs personnalisées",
+				"code": "// Lancer une erreur générique\nthrow new Error('Quelque chose s\\'est mal passé');\n\n// Types d'erreurs spécifiques\nthrow new TypeError('Type incorrect');\nthrow new RangeError('Valeur hors limites');\nthrow new ReferenceError('Variable non définie');\n\n// Erreur personnalisée\nclass ErreurPersonnalisee extends Error {\n  constructor(message, code) {\n    super(message);\n    this.name = 'ErreurPersonnalisee';\n    this.code = code;\n  }\n}\n\nfunction diviser(a, b) {\n  if (b === 0) {\n    throw new ErreurPersonnalisee('Division par zéro', 'DIV_ZERO');\n  }\n  return a / b;\n}"
+			},
+			"c. Validation": {
+				"description": "Valider des données et gérer les cas d'erreur",
+				"code": "function validerAge(age) {\n  if (typeof age !== 'number') {\n    throw new TypeError('L\\'âge doit être un nombre');\n  }\n  \n  if (age < 0) {\n    throw new RangeError('L\\'âge ne peut pas être négatif');\n  }\n  \n  if (age > 150) {\n    throw new RangeError('L\\'âge semble irréaliste');\n  }\n  \n  return true;\n}\n\n// Utilisation\ntry {\n  validerAge(-5);\n} catch (erreur) {\n  console.log(`Validation échouée: ${erreur.message}`);\n}"
+			}
+		},
+		"10/ Programmation Asynchrone": {
+			"a. Callbacks": {
+				"description": "Fonctions de rappel pour code asynchrone",
+				"code": "// Callback simple\nfunction faireQuelqueChose(callback) {\n  setTimeout(() => {\n    console.log('Opération terminée');\n    callback('Résultat');\n  }, 1000);\n}\n\nfaireQuelqueChose((resultat) => {\n  console.log('Reçu:', resultat);\n});\n\n// Problème du \"Callback Hell\"\ngetUtilisateur(id, (user) => {\n  getCommandes(user.id, (orders) => {\n    getDetails(orders[0].id, (details) => {\n      // Code imbriqué difficile à lire\n    });\n  });\n});"
+			},
+			"b. Promises": {
+				"description": "Gérer l'asynchrone avec des promesses",
+				"code": "// Créer une Promise\nconst maPromesse = new Promise((resolve, reject) => {\n  setTimeout(() => {\n    const succes = Math.random() > 0.5;\n    if (succes) {\n      resolve('Opération réussie!');\n    } else {\n      reject(new Error('Opération échouée'));\n    }\n  }, 1000);\n});\n\n// Utiliser une Promise\nmaPromesse\n  .then(resultat => console.log(resultat))\n  .catch(erreur => console.log('Erreur:', erreur.message))\n  .finally(() => console.log('Terminé'));\n\n// Chaîner les Promises\nPromise.resolve(5)\n  .then(x => x * 2)\n  .then(x => x + 1)\n  .then(x => console.log(x)); // 11"
+			},
+			"c. Async/Await": {
+				"description": "Syntaxe moderne pour code asynchrone",
+				"code": "// Fonction async\nasync function obtenirDonnees() {\n  try {\n    const reponse = await fetch('/api/data');\n    const donnees = await reponse.json();\n    return donnees;\n  } catch (erreur) {\n    console.log('Erreur:', erreur);\n    throw erreur;\n  }\n}\n\n// Utilisation\nasync function main() {\n  try {\n    const donnees = await obtenirDonnees();\n    console.log(donnees);\n  } catch (erreur) {\n    console.log('Impossible d\\'obtenir les données');\n  }\n}\n\n// Attendre plusieurs promises\nasync function obtenirTout() {\n  const [users, posts, comments] = await Promise.all([\n    fetch('/users').then(r => r.json()),\n    fetch('/posts').then(r => r.json()),\n    fetch('/comments').then(r => r.json())\n  ]);\n  return {users, posts, comments};\n}"
+			},
+			"d. Promise.all et méthodes": {
+				"description": "Gérer plusieurs promesses simultanément",
+				"code": "const promesse1 = Promise.resolve(3);\nconst promesse2 = new Promise(resolve => setTimeout(() => resolve('foo'), 1000));\nconst promesse3 = Promise.resolve(42);\n\n// Promise.all - attend que toutes se terminent\nPromise.all([promesse1, promesse2, promesse3])\n  .then(valeurs => console.log(valeurs)); // [3, 'foo', 42]\n\n// Promise.allSettled - attend toutes, même en cas d'erreur\nPromise.allSettled([promesse1, Promise.reject('erreur'), promesse3])\n  .then(resultats => console.log(resultats));\n\n// Promise.race - première qui se termine\nPromise.race([promesse1, promesse2])\n  .then(valeur => console.log(valeur)); // 3\n\n// Promise.any - première qui réussit\nPromise.any([Promise.reject('err'), promesse2])\n  .then(valeur => console.log(valeur)); // 'foo'"
+			}
+		},
+		"11/ DOM et Événements": {
+			"a. Sélection d'Éléments": {
+				"description": "Accéder aux éléments HTML depuis JavaScript",
+				"code": "// Sélection par ID\nconst titre = document.getElementById('monTitre');\n\n// Sélection par classe\nconst boutons = document.getElementsByClassName('btn');\nconst premiers = document.querySelectorAll('.btn'); // Plus moderne\n\n// Sélection par balise\nconst paragraphes = document.getElementsByTagName('p');\n\n// Sélecteurs CSS\nconst premier = document.querySelector('.classe #id');\nconst tous = document.querySelectorAll('div > p');\n\n// Navigation dans le DOM\nconst parent = element.parentNode;\nconst enfants = element.children;\nconst suivant = element.nextElementSibling;\nconst precedent = element.previousElementSibling;"
+			},
+			"b. Manipulation du Contenu": {
+				"description": "Modifier le contenu et les attributs",
+				"code": "const element = document.querySelector('#monElement');\n\n// Contenu texte\nelement.textContent = 'Nouveau texte';\nelement.innerText = 'Texte visible'; // Respecte le CSS\n\n// Contenu HTML\nelement.innerHTML = '<strong>Texte en gras</strong>';\n\n// Attributs\nelement.setAttribute('class', 'nouvelle-classe');\nelement.getAttribute('data-id');\nelement.removeAttribute('disabled');\n\n// Propriétés directes\nelement.id = 'nouvelId';\nelement.className = 'classe1 classe2';\nelement.value = 'nouvelle valeur'; // pour les inputs\n\n// Classes CSS\nelement.classList.add('active');\nelement.classList.remove('hidden');\nelement.classList.toggle('visible');\nelement.classList.contains('active'); // true/false"
+			},
+			"c. Création et Insertion": {
+				"description": "Créer et ajouter des éléments au DOM",
+				"code": "// Créer un élément\nconst nouveauDiv = document.createElement('div');\nnouveauDiv.textContent = 'Nouveau contenu';\nnouveauDiv.className = 'ma-classe';\n\n// Insérer dans le DOM\nconst parent = document.querySelector('#conteneur');\nparent.appendChild(nouveauDiv);        // À la fin\nparent.insertBefore(nouveauDiv, premier); // Avant un élément\n\n// Méthodes modernes d'insertion\nparent.prepend(nouveauDiv);           // Au début\nparent.append(nouveauDiv);            // À la fin\nelement.before(nouveauDiv);           // Avant l'élément\nelement.after(nouveauDiv);            // Après l'élément\n\n// Supprimer\nelement.remove();                     // Moderne\nparent.removeChild(element);          // Ancienne méthode\n\n// Cloner\nconst copie = element.cloneNode(true); // true = copie profonde"
+			},
+			"d. Événements": {
+				"description": "Gérer les interactions utilisateur",
+				"code": "const bouton = document.querySelector('#monBouton');\n\n// Ajouter un écouteur d'événement\nbouton.addEventListener('click', function(event) {\n  console.log('Bouton cliqué!');\n  event.preventDefault(); // Empêche le comportement par défaut\n});\n\n// Fonction fléchée\nbouton.addEventListener('click', (e) => {\n  console.log('Cliqué à:', e.clientX, e.clientY);\n});\n\n// Événements courants\ndocument.addEventListener('DOMContentLoaded', () => {\n  console.log('Page chargée');\n});\n\nwindow.addEventListener('resize', () => {\n  console.log('Fenêtre redimensionnée');\n});\n\n// Délégation d'événements\ndocument.addEventListener('click', (e) => {\n  if (e.target.classList.contains('bouton-dynamique')) {\n    console.log('Bouton dynamique cliqué');\n  }\n});\n\n// Supprimer un écouteur\nconst handler = () => console.log('Click');\nbouton.addEventListener('click', handler);\nbouton.removeEventListener('click', handler);"
+			}
+		},
+		"12/ Modules ES6": {
+			"a. Export/Import": {
+				"description": "Organiser le code en modules",
+				"code": "// fichier: math.js\n// Export nommé\nexport function additionner(a, b) {\n  return a + b;\n}\n\nexport const PI = 3.14159;\n\n// Export par défaut\nexport default function multiplier(a, b) {\n  return a * b;\n}\n\n// ===== fichier: main.js =====\n// Import nommé\nimport { additionner, PI } from './math.js';\n\n// Import par défaut\nimport multiplier from './math.js';\n\n// Import avec alias\nimport { additionner as add } from './math.js';\n\n// Import tout\nimport * as MathUtils from './math.js';\n\n// Import dynamique\nimport('./math.js').then(module => {\n  console.log(module.additionner(2, 3));\n});"
+			},
+			"b. Modules dans le Navigateur": {
+				"description": "Utiliser les modules ES6 côté client",
+				"code": "<!-- HTML -->\n<script type=\"module\" src=\"main.js\"></script>\n\n<!-- Ou inline -->\n<script type=\"module\">\n  import { maFonction } from './module.js';\n  maFonction();\n</script>\n\n// main.js\nimport { API_URL } from './config.js';\nimport { fetchData } from './api.js';\nimport './styles.css'; // Import pour effet de bord\n\nasync function init() {\n  try {\n    const data = await fetchData(API_URL);\n    console.log(data);\n  } catch (error) {\n    console.error('Erreur:', error);\n  }\n}\n\ninit();"
+			}
+		},
+		"13/ JSON et Stockage": {
+			"a. JSON": {
+				"description": "Manipuler des données JSON",
+				"code": "// Objet JavaScript vers JSON\nconst personne = {\n  nom: 'Alice',\n  age: 25,\n  actif: true,\n  hobbies: ['lecture', 'sport']\n};\n\nconst json = JSON.stringify(personne);\nconsole.log(json); // '{\"nom\":\"Alice\",\"age\":25,\"actif\":true,\"hobbies\":[\"lecture\",\"sport\"]}'\n\n// JSON vers objet JavaScript\nconst jsonString = '{\"nom\":\"Bob\",\"age\":30}';\nconst objet = JSON.parse(jsonString);\nconsole.log(objet.nom); // 'Bob'\n\n// Avec gestion d'erreur\ntry {\n  const data = JSON.parse(jsonMalForme);\n} catch (error) {\n  console.log('JSON invalide:', error.message);\n}\n\n// Personnaliser la sérialisation\nconst jsonFormate = JSON.stringify(personne, null, 2); // Indenté"
+			},
+			"b. LocalStorage": {
+				"description": "Stocker des données localement",
+				"code": "// Stocker des données\nlocalStorage.setItem('nom', 'Alice');\nlocalStorage.setItem('preferences', JSON.stringify({theme: 'dark'}));\n\n// Récupérer des données\nconst nom = localStorage.getItem('nom');\nconst prefs = JSON.parse(localStorage.getItem('preferences') || '{}');\n\n// Vérifier l'existence\nif (localStorage.getItem('nom') !== null) {\n  console.log('Nom trouvé:', nom);\n}\n\n// Supprimer\nlocalStorage.removeItem('nom');\nlocalStorage.clear(); // Tout supprimer\n\n// Écouter les changements\nwindow.addEventListener('storage', (e) => {\n  console.log('Stockage modifié:', e.key, e.newValue);\n});\n\n// SessionStorage (durée de session)\nsessionStorage.setItem('temporaire', 'valeur');\nconst temp = sessionStorage.getItem('temporaire');"
+			}
+		},
+		"14/ Expressions Régulières": {
+			"a. Création et Test": {
+				"description": "Créer et utiliser des regex",
+				"code": "// Création de regex\nconst regex1 = /pattern/flags;\nconst regex2 = new RegExp('pattern', 'flags');\n\n// Flags communs\nconst global = /abc/g;      // Global (toutes les occurrences)\nconst insensible = /abc/i;  // Insensible à la casse\nconst multiligne = /^abc/m; // Multiligne\n\n// Test d'une chaîne\nconst email = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\nconsole.log(email.test('user@example.com')); // true\n\n// Recherche\nconst texte = 'Hello World';\nconst match = texte.match(/l+/g); // ['ll', 'l']\nconst premiere = texte.search(/World/); // 6\n\n// Remplacement\nconst nouveau = texte.replace(/l/g, 'L'); // 'HeLLo WorLd'\nconst avecCallback = texte.replace(/\\w+/g, (mot) => mot.toUpperCase());"
+			},
+			"b. Patterns Courants": {
+				"description": "Expressions régulières utiles",
+				"code": "// Email\nconst email = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n\n// Téléphone français\nconst tel = /^0[1-9]([-. ]?[0-9]{2}){4}$/;\n\n// Mot de passe fort (8+ chars, majuscule, minuscule, chiffre)\nconst mdp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d@$!%*?&]{8,}$/;\n\n// URL\nconst url = /^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$/;\n\n// Code postal français\nconst codePostal = /^[0-9]{5}$/;\n\n// Numéro de carte bancaire\nconst carte = /^[0-9]{4}[-\\s]?[0-9]{4}[-\\s]?[0-9]{4}[-\\s]?[0-9]{4}$/;\n\n// Validation\nfunction validerEmail(email) {\n  return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n}"
+			}
+		},
+		"15/ Manipulation de Dates": {
+			"a. Création de Dates": {
+				"description": "Créer et manipuler des objets Date",
+				"code": "// Date actuelle\nconst maintenant = new Date();\n\n// Dates spécifiques\nconst noel = new Date('2023-12-25');\nconst anniversaire = new Date(2023, 11, 25); // Mois: 0-11\nconst precise = new Date(2023, 11, 25, 14, 30, 0); // + heure\n\n// Timestamp\nconst timestamp = Date.now(); // millisecondes depuis 1970\nconst depuisTimestamp = new Date(timestamp);\n\n// Parse string\nconst parsed = Date.parse('2023-12-25T14:30:00');\n\n// Validation\nconst dateInvalide = new Date('date invalide');\nconsole.log(isNaN(dateInvalide)); // true si invalide"
+			},
+			"b. Récupération de Valeurs": {
+				"description": "Extraire des composants d'une date",
+				"code": "const date = new Date('2023-12-25T14:30:45');\n\n// Composants de date\nconst annee = date.getFullYear();     // 2023\nconst mois = date.getMonth();         // 11 (0-11)\nconst jour = date.getDate();          // 25\nconst jourSemaine = date.getDay();    // 1 (0=dimanche)\n\n// Composants de temps\nconst heures = date.getHours();       // 14\nconst minutes = date.getMinutes();    // 30\nconst secondes = date.getSeconds();   // 45\nconst ms = date.getMilliseconds();    // 0\n\n// Timestamp\nconst timestamp = date.getTime();     // millisecondes\n\n// UTC\nconst heuresUTC = date.getUTCHours();\nconst jourUTC = date.getUTCDate();"
+			},
+			"c. Formatage": {
+				"description": "Afficher des dates dans différents formats",
+				"code": "const date = new Date('2023-12-25T14:30:00');\n\n// Formats par défaut\nconsole.log(date.toString());          // Format complet\nconsole.log(date.toDateString());      // Juste la date\nconsole.log(date.toTimeString());      // Juste l'heure\nconsole.log(date.toISOString());       // Format ISO\n\n// Formats localisés\nconsole.log(date.toLocaleDateString('fr-FR')); // 25/12/2023\nconsole.log(date.toLocaleDateString('en-US')); // 12/25/2023\n\n// Format personnalisé avec options\nconst options = {\n  year: 'numeric',\n  month: 'long',\n  day: 'numeric',\n  weekday: 'long'\n};\nconsole.log(date.toLocaleDateString('fr-FR', options));\n// 'lundi 25 décembre 2023'\n\n// Format simple\nfunction formaterDate(date) {\n  const j = date.getDate().toString().padStart(2, '0');\n  const m = (date.getMonth() + 1).toString().padStart(2, '0');\n  const a = date.getFullYear();\n  return `${j}/${m}/${a}`;\n}"
+			},
+			"d. Calculs avec les Dates": {
+				"description": "Opérations arithmétiques sur les dates",
+				"code": "const maintenant = new Date();\nconst demain = new Date(maintenant);\ndemain.setDate(maintenant.getDate() + 1);\n\n// Ajouter du temps\nconst dansSeptJours = new Date(maintenant.getTime() + 7 * 24 * 60 * 60 * 1000);\n\n// Différence entre dates\nconst date1 = new Date('2023-12-25');\nconst date2 = new Date('2023-12-31');\nconst diffMs = date2 - date1;\nconst diffJours = Math.floor(diffMs / (1000 * 60 * 60 * 24)); // 6 jours\n\n// Fonctions utiles\nfunction ajouterJours(date, jours) {\n  const resultat = new Date(date);\n  resultat.setDate(date.getDate() + jours);\n  return resultat;\n}\n\nfunction estBissextile(annee) {\n  return (annee % 4 === 0 && annee % 100 !== 0) || (annee % 400 === 0);\n}\n\nfunction age(dateNaissance) {\n  const aujourd = new Date();\n  const naissance = new Date(dateNaissance);\n  let age = aujourd.getFullYear() - naissance.getFullYear();\n  \n  if (aujourd.getMonth() < naissance.getMonth() || \n      (aujourd.getMonth() === naissance.getMonth() && aujourd.getDate() < naissance.getDate())) {\n    age--;\n  }\n  \n  return age;\n}"
+			}
+		}
+	}
+}

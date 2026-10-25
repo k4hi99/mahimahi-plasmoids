@@ -1,0 +1,76 @@
+{
+	"name": "Claude Code",
+	"description": "Mémo Claude Code : installation, commandes, prompts, sécurité et consommation",
+	"author": "MahiMahi99",
+	"version": "1.0",
+	"sections": {
+		"01/ Installer et lancer": {
+			"a. Installation": {
+				"description": "Version native, recommandée (voir code.claude.com/docs pour la version à jour)",
+				"code": "# Linux / macOS\ncurl -fsSL https://claude.ai/install.sh | bash\n\n# Windows (PowerShell)\nirm https://claude.ai/install.ps1 | iex\n\n# Vérifier\nclaude --version\n\n# 'commande introuvable' ? -> le dossier n'est pas dans le PATH\n# Linux : ~/.local/bin   |   Windows : C:\\Users\\<moi>\\.local\\bin"
+			},
+			"b. Lancer une session": {
+				"description": "Toujours depuis le dossier du projet",
+				"code": "cd ~/mon-projet\nclaude                 # nouvelle session\nclaude --continue      # reprendre la dernière conversation (-c)\nclaude --resume        # choisir une ancienne conversation (-r)\n\n# Connexion : le navigateur s'ouvre au 1er lancement (compte Pro/Max)"
+			},
+			"c. Quitter / interrompre": {
+				"description": "Garder la main",
+				"code": "Échap        Interrompre Claude pendant qu'il travaille\n/exit        Quitter la session\nCtrl+C x2    Quitter aussi"
+			}
+		},
+		"02/ Commandes utiles": {
+			"a. Les indispensables": {
+				"description": "Tape / dans la session pour voir toute la liste à jour",
+				"code": "/help      Aide et liste des commandes\n/clear     Repartir d'une conversation vierge (nouvelle tâche)\n/compact   Résumer la conversation pour libérer de la place\n/init      Créer un CLAUDE.md qui décrit le projet\n/usage     Voir sa consommation\n/exit      Quitter"
+			},
+			"b. Parler de fichiers précis": {
+				"description": "Pointer directement un fichier ou dossier",
+				"code": "@main.qml            mentionner un fichier\n@contents/ui/        mentionner un dossier\n\n# Exemple :\n# Explique-moi ce que fait loadCheatsheets() dans @contents/ui/main.qml"
+			},
+			"c. Modes de permission": {
+				"description": "Changer la façon dont il demande l'autorisation",
+				"code": "Maj+Tab   Faire défiler les modes (dont le mode 'plan' :\n          il propose un plan sans rien modifier)\n\n# Par défaut : il demande avant chaque modification\n# ou commande. Lis toujours ce qu'il propose avant d'accepter."
+			}
+		},
+		"03/ Bien prompter": {
+			"a. La recette": {
+				"description": "Contexte + objectif + contraintes + vérification",
+				"code": "Dans [dossier/fichiers], [ce qui existe aujourd'hui].\nJe veux [résultat attendu].\nContraintes : [garder l'indentation, ne pas toucher à X...].\nAvant de modifier, liste-moi les fichiers concernés\net explique ton plan."
+			},
+			"b. Exemple : remplacer des presets": {
+				"description": "Plusieurs fichiers d'un coup",
+				"code": "Dans ~/.local/share/plasma/plasmoids/, plusieurs plasmoids\nont un menu de couleurs avec un bloc `model: [...]` de presets\n(Sweet Bun, One Punch, Marimo...).\nRemplace ce bloc dans chaque fichier par le contenu de\n@~/presets-plasmoids.txt, en gardant l'indentation du fichier.\nAvant de modifier, liste-moi les fichiers trouvés."
+			},
+			"c. Exemple : nouvelle fonctionnalité": {
+				"description": "Laisser Claude choisir la technique",
+				"code": "Dans @cheaty.MahiMahi99/contents/ui/main.qml,\nloadCheatsheets() utilise une liste de dossiers écrite en dur.\nRemplace-la par une détection automatique des sous-dossiers\nde refdocs qui contiennent un sheet.json.\nC'est une plasmoid Plasma 6 (Qt 6). Propose-moi d'abord\nta solution avant de modifier."
+			},
+			"d. Petits conseils": {
+				"description": "Pour des sessions efficaces",
+				"code": "- Une tâche = une session (/clear entre deux sujets)\n- Demande un plan avant les grosses modifs (Maj+Tab -> plan)\n- Donne les messages d'erreur EN ENTIER (copier-coller)\n- 'Explique-moi' avant 'modifie' sur du code inconnu\n- Lance-le dans le dossier précis, pas à la racine du disque"
+			}
+		},
+		"04/ Sécurité et retour arrière": {
+			"a. Sauvegarder avant": {
+				"description": "Git = les photos Snapper de ton code",
+				"code": "cd ~/mon-projet\ngit init                 # une seule fois\ngit add -A\ngit commit -m \"avant Claude\"\n\n# Si le résultat ne plaît pas :\ngit diff                 # voir ce qui a changé\ngit restore .            # tout annuler depuis le dernier commit"
+			},
+			"b. Sans Git": {
+				"description": "Copie de secours rapide",
+				"code": "# Linux\ncp -r ~/.local/share/plasma/plasmoids ~/plasmoids-backup\n\n# Windows\nCopy-Item D:\\Cheaty D:\\Cheaty-backup -Recurse"
+			}
+		},
+		"05/ Consommation": {
+			"a. Les limites": {
+				"description": "Même compteur que Claude.ai",
+				"code": "- Plans Pro/Max : limites partagées entre Claude.ai et Claude Code\n- Claude Code consomme plus vite (il lit les fichiers)\n- /usage dans la session, ou claude.ai/settings/usage\n- Limite atteinte + proposition de crédits API ?\n  -> facturé EN PLUS de l'abonnement : refuser pour rester\n     dans le forfait et attendre la réinitialisation"
+			}
+		},
+		"06/ CLAUDE.md": {
+			"a. Le briefing du projet": {
+				"description": "Lu automatiquement à chaque session dans ce dossier",
+				"code": "/init      # le génère à partir du projet\n\n# Ou à la main : CLAUDE.md à la racine du projet\n# Exemple :\n# - Plasmoid KDE Plasma 6, QML / Qt 6\n# - Palettes : 8 rôles (primary, secondary, accent, tertiary,\n#   bg, text, secText, badgeText)\n# - Toujours garder l'indentation à 4 espaces\n# - Recharger : systemctl --user restart plasma-plasmashell"
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "mahicala@gmail.com",
+                "Name": "MahiMahi99"
+            },
+            {
+                "Name": "centurix (applet Cinnamon Cheaty d'origine)",
+                "Website": "https://cinnamon-spices.linuxmint.com/applets/view/285"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Tes antisèches (HTML, CSS, JavaScript, Markdown, codes HTTP…) à portée de clic, avec copie du code en un clic. Adaptation de l'applet Cinnamon Cheaty de centurix.",
+        "Icon": "cheaty.MahiMahi99",
+        "Id": "cheaty.MahiMahi99",
+        "License": "GPL-3.0-only",
+        "Name": "Cheaty",
+        "Version": "1.0.0",
+        "Website": "https://github.com/k4hi99/mahimahi-plasmoids"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

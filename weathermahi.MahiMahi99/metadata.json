@@ -1,0 +1,20 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "mahicala@gmail.com",
+                "Name": "MahiMahi99"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Météo actuelle et prévisions de ta ville, via OpenWeatherMap (clé API gratuite à renseigner).",
+        "Icon": "weathermahi.MahiMahi99",
+        "Id": "weathermahi.MahiMahi99",
+        "License": "GPL-3.0-or-later",
+        "Name": "Weather Mahi",
+        "Version": "1.0.0",
+        "Website": "https://github.com/k4hi99/mahimahi-plasmoids"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

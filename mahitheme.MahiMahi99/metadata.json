@@ -1,0 +1,20 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "mahicala@gmail.com",
+                "Name": "MahiMahi99"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Change de thème MahiTheme en un clic : couleurs de KDE, fond d'écran et plasmoids. Nécessite le script mahitheme (dossier mahitheme-cli).",
+        "Icon": "kcolorchooser",
+        "Id": "mahitheme.MahiMahi99",
+        "License": "GPL-3.0-or-later",
+        "Name": "MahiTheme",
+        "Version": "1.0.0",
+        "Website": "https://github.com/k4hi99/mahimahi-plasmoids"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

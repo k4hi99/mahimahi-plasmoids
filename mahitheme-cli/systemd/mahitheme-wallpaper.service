@@ -1,0 +1,7 @@
+[Unit]
+Description=MahiTheme : fond d'écran suivant
+After=plasma-plasmashell.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/mahitheme --next-wallpaper

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+  <kcfgfile name=""/>
+
+  <group name="General">
+    <entry name="apiKey" type="String">
+      <default></default>
+    </entry>
+    <entry name="city" type="String">
+      <default>Lyon</default>
+    </entry>
+    <entry name="units" type="String">
+      <default>metric</default>
+    </entry>
+  </group>
+
+  <group name="Sizes">
+    <!-- ========== TAILLES STANDARD ========== -->
+    <entry name="titleFontSize" type="Int">
+      <default>18</default>
+    </entry>
+    <entry name="textFontSize" type="Int">
+      <default>14</default>
+    </entry>
+    <entry name="smallFontSize" type="Int">
+      <default>10</default>
+    </entry>
+    <entry name="borderRadius" type="Int">
+      <default>6</default>
+    </entry>
+    <entry name="widgetBorderWidth" type="Int">
+      <default>1</default>
+    </entry>
+    <entry name="compactIconSize" type="Int">
+      <default>32</default>
+    </entry>
+
+    <!-- ========== TAILLES SPÉCIALES : textes ========== -->
+    <entry name="compactTempSize" type="Int">
+      <default>18</default>
+    </entry>
+    <entry name="compactCitySize" type="Int">
+      <default>9</default>
+    </entry>
+    <entry name="fullTempSize" type="Int">
+      <default>32</default>
+    </entry>
+    <entry name="detailValueSize" type="Int">
+      <default>13</default>
+    </entry>
+    <entry name="forecastDaySize" type="Int">
+      <default>11</default>
+    </entry>
+    <entry name="forecastTempSize" type="Int">
+      <default>13</default>
+    </entry>
+
+    <!-- ========== TAILLES SPÉCIALES : icônes ========== -->
+    <entry name="fullMainIconSize" type="Int">
+      <default>64</default>
+    </entry>
+    <entry name="detailIconSize" type="Int">
+      <default>22</default>
+    </entry>
+    <entry name="forecastIconSize" type="Int">
+      <default>32</default>
+    </entry>
+  </group>
+
+  <group name="Colors">
+    <!-- ========== 8 RÔLES STANDARD ========== -->
+    <!-- Défauts : palette Sweet Bun -->
+    <entry name="primaryColor" type="String">
+      <default>#836A8A</default>
+    </entry>
+    <entry name="secondaryColor" type="String">
+      <default>#455973</default>
+    </entry>
+    <entry name="accentColor" type="String">
+      <default>#587891</default>
+    </entry>
+    <entry name="tertiaryColor" type="String">
+      <default>#47455D</default>
+    </entry>
+    <entry name="bgColor" type="String">
+      <default>#1E3D51</default>
+    </entry>
+    <entry name="textColor" type="String">
+      <default>#E3DCE5</default>
+    </entry>
+    <entry name="secTextColor" type="String">
+      <default>#EDE8EE</default>
+    </entry>
+    <entry name="badgeTextColor" type="String">
+      <default>#F6F3F6</default>
+    </entry>
+
+    <!-- ========== CONTOUR DU WIDGET ========== -->
+    <!-- Pas de clé de couleur : le contour prend tertiaryColor -->
+    <entry name="widgetBorderEnabled" type="Bool">
+      <default>true</default>
+    </entry>
+
+    <!-- ========== COULEURS SPÉCIALES ========== -->
+    <entry name="unitIndicatorColor" type="String">
+      <default>#587891</default>
+    </entry>
+  </group>
+</kcfg>

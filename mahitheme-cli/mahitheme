@@ -1,0 +1,483 @@
+#!/usr/bin/env python3
+"""MahiTheme : applique une palette à tout KDE (schéma de couleurs, fond d'écran, plasmoids).
+
+Usage :
+    mahitheme <nom>              applique un thème (insensible aux espaces et majuscules)
+    mahitheme --next-theme       applique le thème suivant
+    mahitheme --next-wallpaper   change le fond d'écran (dans le dossier du thème courant)
+    mahitheme --list [--json]    liste les thèmes (* = thème courant)
+    mahitheme --current          affiche le thème courant
+    mahitheme --rotation on|off  active ou désactive la rotation du fond d'écran
+    mahitheme --interval N       change la fréquence de rotation (en minutes)
+    mahitheme --status [--json]  affiche si la rotation est active et sa fréquence
+
+Variables d'environnement :
+    MAHITHEME_THEMES      fichier des palettes (défaut : ~/.config/mahitheme/themes.json)
+    MAHITHEME_WALLPAPERS  dossier des fonds d'écran, un sous-dossier par thème
+                          (défaut : <dossier Images>/Themes)
+"""
+
+import json
+import os
+import random
+import re
+import subprocess
+import sys
+import xml.etree.ElementTree as ET
+from datetime import datetime
+from pathlib import Path
+
+HOME = Path.home()
+
+
+def xdg_dir(variable, default):
+    """Dossier XDG (XDG_CONFIG_HOME…), avec le défaut de la spécification."""
+    value = os.environ.get(variable)
+    return Path(value) if value else HOME / default
+
+
+def pictures_dir():
+    """Dossier Images de l'utilisateur (localisé : Images, Pictures…)."""
+    try:
+        result = subprocess.run(["xdg-user-dir", "PICTURES"], capture_output=True, text=True)
+        if result.returncode == 0 and result.stdout.strip():
+            return Path(result.stdout.strip())
+    except OSError:
+        pass
+    return HOME / "Pictures"
+
+
+CONFIG_HOME = xdg_dir("XDG_CONFIG_HOME", ".config")
+DATA_HOME = xdg_dir("XDG_DATA_HOME", ".local/share")
+STATE_HOME = xdg_dir("XDG_STATE_HOME", ".local/state")
+
+# Réglables par variables d'environnement (ex. dans ~/.config/environment.d/mahitheme.conf)
+THEMES_FILE = Path(os.environ.get("MAHITHEME_THEMES") or CONFIG_HOME / "mahitheme/themes.json")
+WALLPAPER_DIR = Path(os.environ.get("MAHITHEME_WALLPAPERS") or pictures_dir() / "Themes")
+STATE_FILE = STATE_HOME / "mahitheme/state.json"
+SCHEMES_DIR = DATA_HOME / "color-schemes"
+PLASMOIDS_DIR = DATA_HOME / "plasma/plasmoids"
+TIMER = "mahitheme-wallpaper.timer"
+TIMER_DROPIN = CONFIG_HOME / f"systemd/user/{TIMER}.d/interval.conf"
+
+IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
+
+# Rôle (preset) -> clé kcfg, cf. standard des couleurs du CLAUDE.md des plasmoids
+ROLES = {
+    "primary": "primaryColor",
+    "secondary": "secondaryColor",
+    "accent": "accentColor",
+    "tertiary": "tertiaryColor",
+    "bg": "bgColor",
+    "text": "textColor",
+    "secText": "secTextColor",
+    "badgeText": "badgeTextColor",
+}
+# Rôle donné aux couleurs spéciales (pauseButtonColor…), comme applySpecialColors()
+SPECIAL_ROLE = "accent"
+
+
+# ========== Thèmes et état ==========
+
+def load_themes():
+    try:
+        with open(THEMES_FILE, encoding="utf-8") as f:
+            return json.load(f)["themes"]
+    except FileNotFoundError:
+        sys.exit(f"mahitheme : {THEMES_FILE} introuvable (lancer install.sh, "
+                 "ou indiquer le fichier avec MAHITHEME_THEMES)")
+
+
+def normalize(name):
+    return "".join(name.split()).lower()
+
+
+def find_theme(themes, name):
+    for theme in themes:
+        if normalize(theme["name"]) == normalize(name):
+            return theme
+    return None
+
+
+def load_state():
+    try:
+        with open(STATE_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def save_state(state):
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+
+
+def current_theme(themes):
+    name = load_state().get("theme")
+    return find_theme(themes, name) if name else None
+
+
+# ========== Couleurs ==========
+
+def hex_to_rgb(color):
+    color = color.lstrip("#")
+    return tuple(int(color[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def mix(a, b, amount):
+    """Mélange a vers b (amount = 0 -> a, 1 -> b)."""
+    return tuple(round(x + (y - x) * amount) for x, y in zip(a, b))
+
+
+def luminance(rgb):
+    def channel(c):
+        c /= 255
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = (channel(c) for c in rgb)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast(a, b):
+    la, lb = sorted((luminance(a), luminance(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def readable(background, *candidates):
+    """Le candidat le plus lisible sur ce fond."""
+    return max(candidates, key=lambda c: contrast(background, c))
+
+
+# ========== a. Schéma de couleurs KDE ==========
+
+# Couleurs d'état (lien, négatif…) reprises de Breeze, en version claire ou sombre selon le fond
+BREEZE_STATES = {
+    "light": {"ForegroundLink": (41, 128, 185), "ForegroundNegative": (218, 68, 83),
+              "ForegroundNeutral": (246, 116, 0), "ForegroundPositive": (39, 174, 96),
+              "ForegroundVisited": (155, 89, 182)},
+    "dark": {"ForegroundLink": (29, 153, 243), "ForegroundNegative": (218, 68, 83),
+             "ForegroundNeutral": (246, 116, 0), "ForegroundPositive": (39, 174, 96),
+             "ForegroundVisited": (155, 89, 182)},
+}
+
+
+def color_scheme(theme, scheme_name):
+    c = {role: hex_to_rgb(value) for role, value in theme["colors"].items()}
+    states = BREEZE_STATES["dark" if luminance(c["bg"]) < 0.3 else "light"]
+
+    def section(background, alternate, normal=None, inactive=None):
+        normal = normal or readable(background, c["text"], c["badgeText"], c["bg"])
+        inactive = inactive or mix(normal, background, 0.35)
+        return {
+            "BackgroundNormal": background,
+            "BackgroundAlternate": alternate,
+            "DecorationFocus": c["accent"],
+            "DecorationHover": c["accent"],
+            "ForegroundActive": c["accent"],
+            "ForegroundNormal": normal,
+            "ForegroundInactive": inactive,
+            **states,
+        }
+
+    selection_fg = readable(c["accent"], c["badgeText"], c["text"], c["bg"])
+    header_alt = mix(c["tertiary"], c["bg"], 0.25)
+    sections = {
+        "Colors:Window": section(c["bg"], mix(c["bg"], c["tertiary"], 0.25),
+                                 c["text"], c["secText"]),
+        "Colors:View": section(c["bg"], mix(c["bg"], c["tertiary"], 0.25),
+                               c["text"], c["secText"]),
+        "Colors:Button": section(c["secondary"], mix(c["secondary"], c["accent"], 0.4)),
+        "Colors:Selection": section(c["accent"], mix(c["accent"], c["bg"], 0.3),
+                                    selection_fg, mix(selection_fg, c["accent"], 0.25)),
+        "Colors:Header": section(c["tertiary"], header_alt),
+        "Colors:Header][Inactive": section(header_alt, c["tertiary"]),
+        "Colors:Tooltip": section(c["tertiary"], mix(c["tertiary"], c["bg"], 0.25)),
+        "Colors:Complementary": section(c["tertiary"], mix(c["tertiary"], c["bg"], 0.25)),
+    }
+    # La sélection garde un ForegroundActive lisible (pas accent sur accent)
+    sections["Colors:Selection"]["ForegroundActive"] = selection_fg
+
+    title_fg = readable(c["primary"], c["badgeText"], c["text"], c["bg"])
+    inactive_title = mix(c["primary"], c["bg"], 0.5)
+    inactive_title_fg = readable(inactive_title, c["secText"], c["badgeText"], c["text"], c["bg"])
+
+    def rgb(value):
+        return ",".join(str(x) for x in value)
+
+    lines = [
+        "[ColorEffects:Disabled]", "Color=56,56,56", "ColorAmount=0", "ColorEffect=0",
+        "ContrastAmount=0.65", "ContrastEffect=1", "IntensityAmount=0.1", "IntensityEffect=2", "",
+        "[ColorEffects:Inactive]", "ChangeSelectionColor=true", "Color=112,111,110",
+        "ColorAmount=0.025", "ColorEffect=2", "ContrastAmount=0.1", "ContrastEffect=2",
+        "Enable=false", "IntensityAmount=0", "IntensityEffect=0", "",
+    ]
+    for name, values in sections.items():
+        lines.append(f"[{name}]")
+        lines += [f"{key}={rgb(value)}" for key, value in sorted(values.items())]
+        lines.append("")
+    lines += [
+        "[General]", f"ColorScheme={scheme_name}", f"Name=MahiTheme {theme['name']}",
+        "shadeSortColumn=true", "",
+        "[KDE]", "contrast=4", "",
+        "[WM]",
+        f"activeBackground={rgb(c['primary'])}",
+        f"activeBlend={rgb(title_fg)}",
+        f"activeForeground={rgb(title_fg)}",
+        f"inactiveBackground={rgb(inactive_title)}",
+        f"inactiveBlend={rgb(inactive_title_fg)}",
+        f"inactiveForeground={rgb(inactive_title_fg)}",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def active_color_scheme():
+    result = subprocess.run(["kreadconfig6", "--group", "General", "--key", "ColorScheme"],
+                            capture_output=True, text=True)
+    return result.stdout.strip()
+
+
+def apply_color_scheme(theme):
+    base = "MahiTheme" + "".join(ch for ch in theme["name"] if ch.isalnum())
+    # plasma-apply-colorscheme ne fait rien si le schéma est déjà actif :
+    # on alterne entre deux noms pour que les modifications de themes.json passent toujours
+    name, other = base, base + "2"
+    if active_color_scheme() == name:
+        name, other = other, name
+
+    SCHEMES_DIR.mkdir(parents=True, exist_ok=True)
+    (SCHEMES_DIR / f"{name}.colors").write_text(color_scheme(theme, name), encoding="utf-8")
+    subprocess.run(["plasma-apply-colorscheme", name], check=True,
+                   stdout=subprocess.DEVNULL)
+    (SCHEMES_DIR / f"{other}.colors").unlink(missing_ok=True)
+
+
+# ========== b. Fond d'écran ==========
+
+def apply_wallpaper(theme, state):
+    folder = WALLPAPER_DIR / theme["name"]
+    images = sorted(p for p in folder.glob("*") if p.suffix.lower() in IMAGE_EXTS) \
+        if folder.is_dir() else []
+    if not images:
+        print(f"mahitheme : aucune image dans {folder}, fond d'écran inchangé", file=sys.stderr)
+        return
+    # Éviter de retomber sur l'image précédente quand il y a le choix
+    choices = [p for p in images if str(p) != state.get("wallpaper")] or images
+    image = random.choice(choices)
+    subprocess.run(["plasma-apply-wallpaperimage", str(image)], check=True,
+                   stdout=subprocess.DEVNULL)
+    state["wallpaper"] = str(image)
+
+
+# ========== c. Plasmoids ==========
+
+KCFG_NS = "{http://www.kde.org/standards/kcfg/1.0}"
+
+
+def standard_plasmoids():
+    """{id de plasmoid: [clés du groupe Colors]} pour celles qui suivent le standard des couleurs."""
+    plasmoids = {}
+    for main_xml in PLASMOIDS_DIR.glob("*/contents/config/main.xml"):
+        root_dir = main_xml.parents[2]
+        try:
+            with open(root_dir / "metadata.json", encoding="utf-8") as f:
+                plugin_id = json.load(f)["KPlugin"]["Id"]
+            tree = ET.parse(main_xml)
+        except (OSError, ValueError, KeyError, ET.ParseError):
+            continue
+        for group in tree.getroot().iter(f"{KCFG_NS}group"):
+            if group.get("name") != "Colors":
+                continue
+            keys = [entry.get("name") for entry in group.iter(f"{KCFG_NS}entry")]
+            if all(key in keys for key in ROLES.values()):
+                plasmoids[plugin_id] = keys
+    return plasmoids
+
+
+def plasmoid_colors(theme, keys):
+    by_key = {key: theme["colors"][role] for role, key in ROLES.items()}
+    special = theme["colors"][SPECIAL_ROLE]
+    return {key: by_key.get(key, special) for key in keys}
+
+
+def apply_plasmoids(theme):
+    configs = {plugin_id: plasmoid_colors(theme, keys)
+               for plugin_id, keys in standard_plasmoids().items()}
+    script = """
+var configs = %s;
+var count = 0;
+var containments = desktops().concat(panels());
+for (var i = 0; i < containments.length; ++i) {
+    var widgets = containments[i].widgets();
+    for (var j = 0; j < widgets.length; ++j) {
+        var w = widgets[j];
+        var colors = configs[w.type];
+        if (!colors) continue;
+        w.currentConfigGroup = ["Colors"];
+        for (var key in colors) w.writeConfig(key, colors[key]);
+        w.reloadConfig();
+        ++count;
+    }
+}
+print(count);
+""" % json.dumps(configs)
+    result = subprocess.run(
+        ["gdbus", "call", "--session", "--dest", "org.kde.plasmashell",
+         "--object-path", "/PlasmaShell", "--method", "org.kde.PlasmaShell.evaluateScript", script],
+        capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"mahitheme : plasmoids non repeintes ({result.stderr.strip()})", file=sys.stderr)
+
+
+# ========== d. Rotation du fond d'écran ==========
+
+def systemctl(*args):
+    return subprocess.run(["systemctl", "--user", *args], capture_output=True, text=True)
+
+
+def parse_minutes(span):
+    """Durée systemd (« 15min », « 1h 30min », « 90s ») -> minutes."""
+    units = {"d": 1440, "h": 60, "min": 1, "s": 1 / 60, "ms": 1 / 60000}
+    total = sum(float(n) * units[u] for n, u in re.findall(r"([\d.]+)\s*(d|h|min|ms|s)\b", span))
+    return round(total)
+
+
+def rotation_status():
+    show = systemctl("show", TIMER, "-p", "ActiveState,UnitFileState,TimersMonotonic").stdout
+    active = "ActiveState=active" in show
+    match = re.search(r"OnUnitActiveUSec=([^;]+);", show)
+    interval = parse_minutes(match.group(1)) if match else None
+
+    next_time = None
+    if active:
+        try:
+            timers = json.loads(systemctl("list-timers", "--all", "-o", "json").stdout)
+            usec = next((t["next"] for t in timers if t["unit"] == TIMER), None)
+            if usec:
+                next_time = datetime.fromtimestamp(usec / 1e6).strftime("%H:%M")
+        except ValueError:
+            pass
+    return {"rotation": active, "enabled": "UnitFileState=enabled" in show,
+            "interval": interval, "next": next_time}
+
+
+def cmd_status(as_json):
+    status = rotation_status()
+    if as_json:
+        print(json.dumps(status))
+        return
+    line = "Rotation : " + ("activée" if status["rotation"] else "désactivée")
+    if status["interval"]:
+        line += f", toutes les {status['interval']} min"
+    if status["next"]:
+        line += f" (prochain : {status['next']})"
+    print(line)
+
+
+def cmd_rotation(value):
+    if value not in ("on", "off"):
+        sys.exit("mahitheme : --rotation attend « on » ou « off »")
+    # enable/disable : le choix tient aussi après un redémarrage de session
+    result = systemctl("enable" if value == "on" else "disable", "--now", TIMER)
+    if result.returncode != 0:
+        sys.exit(f"mahitheme : {result.stderr.strip()}")
+    print("Rotation " + ("activée" if value == "on" else "désactivée"))
+
+
+def cmd_interval(value):
+    try:
+        minutes = int(value)
+    except (TypeError, ValueError):
+        minutes = 0
+    if not 1 <= minutes <= 1440:
+        sys.exit("mahitheme : --interval attend un nombre de minutes entre 1 et 1440")
+    # Drop-in plutôt que modifier le .timer. La ligne vide efface TOUS les déclencheurs
+    # monotones du .timer, donc OnActiveSec (premier changement 1 min après l'activation,
+    # point de départ de OnUnitActiveSec) doit être redéclaré
+    TIMER_DROPIN.parent.mkdir(parents=True, exist_ok=True)
+    TIMER_DROPIN.write_text("[Timer]\nOnUnitActiveSec=\nOnActiveSec=1min\n"
+                            f"OnUnitActiveSec={minutes}min\n", encoding="utf-8")
+    # daemon-reload suffit : l'échéance est recalculée depuis le dernier changement de fond
+    # (un restart relancerait le service tout de suite si l'échéance est déjà dépassée)
+    systemctl("daemon-reload")
+    print(f"Fréquence de rotation : {minutes} min")
+
+
+# ========== Commandes ==========
+
+def apply_theme(theme):
+    state = load_state()
+    apply_color_scheme(theme)
+    apply_wallpaper(theme, state)
+    apply_plasmoids(theme)
+    state["theme"] = theme["name"]
+    save_state(state)
+    print(f"Thème appliqué : {theme['name']}")
+
+
+def cmd_list(themes, as_json):
+    current = current_theme(themes)
+    current_name = current["name"] if current else None
+    if as_json:
+        print(json.dumps([{**t, "current": t["name"] == current_name} for t in themes],
+                         ensure_ascii=False))
+        return
+    for theme in themes:
+        print(("* " if theme["name"] == current_name else "  ") + theme["name"])
+
+
+def cmd_next_theme(themes):
+    current = current_theme(themes)
+    index = (themes.index(current) + 1) % len(themes) if current else 0
+    apply_theme(themes[index])
+
+
+def cmd_next_wallpaper(themes):
+    current = current_theme(themes)
+    if not current:
+        sys.exit("mahitheme : aucun thème courant, lancer d'abord « mahitheme <nom> »")
+    state = load_state()
+    apply_wallpaper(current, state)
+    save_state(state)
+
+
+def main(args):
+    if not args or args[0] in ("-h", "--help"):
+        print(__doc__.strip())
+        return
+    command = args[0]
+    # Commandes du timer : pas besoin de themes.json
+    if command == "--status":
+        cmd_status("--json" in args[1:])
+        return
+    if command == "--rotation":
+        cmd_rotation(args[1] if len(args) > 1 else None)
+        return
+    if command == "--interval":
+        cmd_interval(args[1] if len(args) > 1 else None)
+        return
+    themes = load_themes()
+    if command == "--list":
+        cmd_list(themes, "--json" in args[1:])
+    elif command == "--current":
+        current = current_theme(themes)
+        if not current:
+            sys.exit("mahitheme : aucun thème courant")
+        print(current["name"])
+    elif command == "--next-theme":
+        cmd_next_theme(themes)
+    elif command == "--next-wallpaper":
+        cmd_next_wallpaper(themes)
+    elif command.startswith("--"):
+        sys.exit(f"mahitheme : option inconnue {command}\n\n{__doc__.strip()}")
+    else:
+        name = " ".join(args)
+        theme = find_theme(themes, name)
+        if not theme:
+            names = ", ".join(t["name"] for t in themes)
+            sys.exit(f"mahitheme : thème inconnu « {name} » (thèmes : {names})")
+        apply_theme(theme)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])

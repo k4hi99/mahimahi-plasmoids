@@ -1,0 +1,20 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "mahicala@gmail.com",
+                "Name": "MahiMahi99"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "Affiche le titre en cours sur Spotify (pochette, artiste, progression) avec les commandes de lecture, directement sur le bureau.",
+        "Icon": "mahify.MahiMahi99",
+        "Id": "mahify.MahiMahi99",
+        "License": "GPL-3.0-or-later",
+        "Name": "MahiFy",
+        "Version": "1.0.0",
+        "Website": "https://github.com/k4hi99/mahimahi-plasmoids"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
